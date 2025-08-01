@@ -1,0 +1,63 @@
+#+TITLE: Marco Ciccalè Baztán
+
+# TODO: Uncomment when more pages are added!
+# #+BEGIN_EXPORT html
+# <div class="hr"></div><nav class="navbar">
+# #+END_EXPORT
+
+# - [[file:./][{{{el(span,sc bf,home)}}}]]
+# - [[file:blog.org][{{{el(span,sc bf,blog)}}}]]
+# - [[file:publications.org][{{{el(span,sc bf,publications)}}}]]
+# - [[file:misc.org][{{{el(span,sc bf,misc)}}}]]
+
+# #+BEGIN_EXPORT html
+# </nav><div class="hr"></div>
+# #+END_EXPORT
+
+#+begin_export html
+<div style="display: flex; align-items: center; gap: 20px;">
+  <img src="profile-picture.jpg" alt="My profile picture" id="profile-picture">
+  <div style="flex-grow: 1;">
+#+end_export
+
+I'm a Computer Science Ph.D. student at the [[https://software.imdea.org/][{{{sc(IMDEA Software)}}}]]
+institute and [[https://www.upm.es/][{{{sc(Universidad Politécnica de Madrid)}}}]] under the
+supervision of professors [[https://cliplab.org/~herme/][{{{sc(Manuel V. Hermenegildo)}}}]] and
+[[https://jfmc.github.io/][{{{sc(Jose F. Morales)}}}]].  I'm part of the {{{cliplab}}}
+([[https://cliplab.org/][{{{el(span,sc,CLIP Lab)}}}]]) research group, and one of the developers
+of the [[https://ciao-lang.org/][Ciao Prolog]] system (a Ciao folk!).
+
+#+begin_export html
+  </div>
+</div>
+#+end_export
+
+* Research Interests
+I work on static analysis via {{{it(abstract interpretation)}}},
+formal verification and programming languages implementation.
+
+* Education
+I hold a BSc in Computer Science from Universidad Politécnica de
+Madrid, and I am currently pursuing a MSc in Formal Methods in
+Computer Science at both Universidad {Politécnica,Complutense} de
+Madrid.
+
+During my studies, I have specialized in the areas of declarative
+programming, programming languages implementation, formal
+verification, and static analysis.
+
+* Contact
+The best way of getting in touch with me is by email.  Please don't
+hesitate to reach out.  Whether you'd like to exchange (non-)technical
+ideas or simply have a chat, you're more than welcome to drop me a
+line at [[mailto:marco.ciccale@imdea.org][marco.ciccale@imdea.org]].  And, if you happen to be at IMDEA,
+you can find me in office 240 (floor 2)---I always leave my door
+open. :-)
+
+More concretely:
+- IMDEA Software Institute,
+- Campus Montegancedo s/n,
+- 28223 Pozuelo de Alarcón, Madrid, Spain;
+- Office: 240
+- Email: marco dot ciccale at imdea dot org
+
