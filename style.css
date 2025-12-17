@@ -19,6 +19,10 @@ a {
     text-decoration: none;
 }
 
+code, pre, kbd, samp, tt {
+    font-size: 0.97rem;
+    font-family: monospace, monospace;
+}
 
 .title {
     text-align: center;
@@ -69,20 +73,17 @@ h2, h3, h4, h5, h6 {
   width: auto;
 }
 
-.bf { font-weight: bold; }
-.tt { font-size: 0.97rem; font-family: 'Ubuntu Mono', monospace; }
-.it { font-style: italic; }
+/* .tt { font-size: 0.97rem; font-family: 'Ubuntu Mono', monospace; } */
 .sc { font-variant: small-caps; }
 .sf { font-family: sans-serif; }
 .ul { text-decoration: underline; }
 
-/*
 @media (prefers-color-scheme: dark) {
     body {
-	background-color: #121212;
-	color: #e0e0e0;
+        background-color: #121212;
+        color: #e0e0e0;
     }
-    
+
     .navbar a {
         color: #ddd;
     }
@@ -96,4 +97,3 @@ h2, h3, h4, h5, h6 {
         background-color: #555;
     }
 }
-*/
