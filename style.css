@@ -1,5 +1,6 @@
 body {
-    font-family: 'Palatino Linotype', Palatino, serif;
+    /* font-family: 'Palatino Linotype', Palatino, serif; */
+    font-family: 'Lora', serif;
     font-size: clamp(16px, 20px, 24px);
     text-align: justify;
     max-width: 80ch;
@@ -78,22 +79,30 @@ h2, h3, h4, h5, h6 {
 .sf { font-family: sans-serif; }
 .ul { text-decoration: underline; }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #121212;
-        color: #e0e0e0;
-    }
+/* @media (prefers-color-scheme: dark) { */
+/*     body { */
+/*         background-color: #121212; */
+/*         color: #e0e0e0; */
+/*     } */
 
-    .navbar a {
-        color: #ddd;
-    }
+/*     a { */
+/*         /\* ACMDarkBlue: #0055C9 *\/ */
+/*         /\* ACMLightBlue: #82FCFF *\/ */
+/*         /\* /color: #82aaff; *\/ */
+/*         color: #82FCFF; */
+/*         text-decoration: none; */
+/*     } */
 
-    .navbar a:hover {
-        text-decoration: none;
-        color: #fff;
-    }
+/*     .navbar a { */
+/*         color: #ddd; */
+/*     } */
 
-    .hr {
-        background-color: #555;
-    }
-}
+/*     .navbar a:hover { */
+/*         text-decoration: none; */
+/*         color: #fff; */
+/*     } */
+
+/*     .hr { */
+/*         background-color: #555; */
+/*     } */
+/* } */

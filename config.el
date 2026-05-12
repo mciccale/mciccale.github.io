@@ -30,10 +30,10 @@
         (sc . "{{{el(span,sc,$1)}}}")
         (sf . "{{{el(span,sf,$1)}}}")
         (ul . "{{{el(span,ul,$1)}}}")
-        (cliplab . "{{{ul(C)}}}{{{sc(omputational logic)}}}, \
-{{{ul(L)}}}{{{sc(anguages)}}}, \
-{{{ul(I)}}}{{{sc(mplementation)}}}, and \
-{{{ul(P)}}}{{{sc(arallelism)}}} {{{ul(L)}}}{{{el(span,ul sc,ab)}}}{{{sc(oratory)}}}")))
+        (cliplab . "{{{ul(C)}}}omputational logic, \
+{{{ul(L)}}}anguages, \
+{{{ul(I)}}}mplementation, and \
+{{{ul(P)}}}arallelism {{{ul(L)}}}{{{el(span,ul sc,ab)}}}oratory")))
 
 (setq org-html-postamble t
       org-html-postamble-format
