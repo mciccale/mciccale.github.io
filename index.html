@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+  let FF_FOUC_FIX; // to prevent Firefox FOUC
+</script>
+<title>Marco Ciccalè</title>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a href="#" class="nav-name">Marco Ciccalè</a>
+    <ul class="nav-links">
+      <li><a href="#research">research</a></li>
+      <li><a href="#publications">publications</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#">cv</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-affil">IMDEA Software Institute & UPM @ Madrid, Spain</p>
+          <h1>Marco Ciccalè</h1>
+          <p class="hero-bio" style="margin-top:1.5rem">
+            I am a Ph.D. student in computer science at
+            the <a href="https://software.imdea.org/">IMDEA Software
+            Institute</a> and
+            <a href="https://www.upm.es/">Universidad Politécnica de Madrid</a>, advised by
+            <a href="https://cliplab.org/~herme/">Manuel V. Hermenegildo</a>,
+            <a href="https://jfmc.github.io/">Jose F. Morales</a>, and
+            <a href="https://software.imdea.org/people/pedro.lopez/">Pedro López-García</a>.
+            I am part of the <a href="https://cliplab.org/">CLIP Lab</a> and a developer of
+            the <a href="https://ciao-lang.org/">Ciao Prolog</a> system.
+          </p>
+          <p class="hero-bio">
+            My research sits at the intersection of <em>static analysis</em>, <em>formal verification</em>,
+            and <em>programming language implementation</em> — with abstract interpretation as a central thread.
+          </p>
+          <div class="hero-links">
+            <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
+          </div>
+        </div>
+        <div>
+          <div class="avatar">photo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Research interests</span>
+        <div class="section-rule"></div>
+      </div>
+      <p>
+        I work on <em>static analysis via abstract interpretation</em> — a framework for automatically
+        inferring program properties without running the program. My interests span the full
+        spectrum: the theoretical foundations of abstract domains, the engineering of precise
+        and efficient analyzers, and the integration of analysis with formal verification systems.
+      </p>
+      <p>
+        I am particularly interested in declarative and logic programming settings, where
+        the clean formal semantics makes analysis both tractable and expressive.
+      </p>
+      <div class="tags">
+        <span class="tag">abstract interpretation</span>
+        <span class="tag">static analysis</span>
+        <span class="tag">verification</span>
+        <span class="tag">semantics</span>
+        <span class="tag">logic programming</span>
+        <span class="tag">theory of programming languages</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Publications</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="pub-list">
+
+        <div class="pub">
+          <div class="pub-num">[1]</div>
+          <div class="pub-body">
+            <p class="pub-title">Your paper title goes here</p>
+            <p class="pub-authors">Marco, Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p>
+            <p class="pub-venue"><em>Conference / Journal Name</em>, 2024</p>
+            <div class="pub-links">
+              <a href="#">PDF</a>
+              <a href="#">Abstract</a>
+              <a href="#">Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-num">[2]</div>
+          <div class="pub-body">
+            <p class="pub-title">Another paper title goes here</p>
+            <p class="pub-authors">Marco, Jose F. Morales, Pedro López-García</p>
+            <p class="pub-venue"><em>Conference / Journal Name</em>, 2023</p>
+            <div class="pub-links">
+              <a href="#">PDF</a>
+              <a href="#">Abstract</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="pub-note">Full list on <a href="#">Google Scholar</a> and <a href="#">DBLP</a>.</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Projects</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <p class="proj-name"><a href="https://ciao-lang.org/">Ciao Prolog</a></p>
+          <p class="proj-desc">
+            A modern Prolog system with native support for modular programming,
+            assertions, and static verification via abstract interpretation.
+            One of the main platforms for my research.
+          </p>
+          <span class="proj-role">core developer</span>
+        </div>
+        <div class="proj-card">
+          <p class="proj-name"><a href="#">Project name</a></p>
+          <p class="proj-desc">
+            Brief description of another tool, library, or research artifact.
+            Replace with your own project — a prototype analyzer, a benchmark suite, etc.
+          </p>
+          <span class="proj-role">author</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-year">2025&mdash;...</div>
+          <div>
+            <p class="edu-degree">Ph.D. in Computer Science</p>
+            <p class="edu-school">IMDEA Software Institute &amp; Universidad Politécnica de Madrid</p>
+            <p class="edu-note">Advisors: Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2024&mdash;2025</div>
+          <div>
+            <p class="edu-degree">M.Sc. in Formal Methods in Computer Science and Engineering</p>
+            <p class="edu-school">Universidad Politécnica de Madrid &amp; Universidad Complutense de Madrid</p>
+            <p class="edu-note">Specialisation in declarative programming, static analysis, and formal verification</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2021&mdash;2025</div>
+          <div>
+            <p class="edu-degree">B.Sc. in Computer Science</p>
+            <p class="edu-school">Universidad Politécnica de Madrid</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span class="footer-text">Marco Ciccalè</span>
+    <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
+  </div>
+</footer>
+
+</body>
+</html>
