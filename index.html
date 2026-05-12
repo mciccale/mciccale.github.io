@@ -1,60 +1,73 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="style.css">
-<script>
-  let FF_FOUC_FIX; // to prevent Firefox FOUC
-</script>
-<title>Marco Ciccalè</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<nav>
-  <div class="container">
-    <a href="#" class="nav-name">Marco Ciccalè</a>
-    <ul class="nav-links">
-      <li><a href="#research">research</a></li>
-      <li><a href="#publications">publications</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#education">education</a></li>
-      <li><a href="#">cv</a></li>
-    </ul>
-  </div>
-</nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-<main>
-  <div class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div>
-          <p class="hero-affil">IMDEA Software Institute & UPM @ Madrid, Spain</p>
-          <h1>Marco Ciccalè</h1>
-          <p class="hero-bio" style="margin-top:1.5rem">
-            I am a Ph.D. student in computer science at
-            the <a href="https://software.imdea.org/">IMDEA Software
-            Institute</a> and
-            <a href="https://www.upm.es/">Universidad Politécnica de Madrid</a>, advised by
-            <a href="https://cliplab.org/~herme/">Manuel V. Hermenegildo</a>,
-            <a href="https://jfmc.github.io/">Jose F. Morales</a>, and
-            <a href="https://software.imdea.org/people/pedro.lopez/">Pedro López-García</a>.
-            I am part of the <a href="https://cliplab.org/">CLIP Lab</a> and a developer of
-            the <a href="https://ciao-lang.org/">Ciao Prolog</a> system.
-          </p>
-          <p class="hero-bio">
-            My research sits at the intersection of <em>static analysis</em>, <em>formal verification</em>,
-            and <em>programming language implementation</em> — with abstract interpretation as a central thread.
-          </p>
-          <div class="hero-links">
-            <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
+    <script>
+      let FF_FOUC_FIX; // to prevent Firefox FOUC
+    </script>
+
+    <title>Marco Ciccalè</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <a href="#" class="nav-name">Marco Ciccalè</a>
+        <span style="font-size: 1.3rem; font-weight: 500;">&vDash;</span>
+        <ul class="nav-links">
+          <li><a href="#research">research</a></li>
+          <li><a href="#publications">publications</a></li>
+          <li><a href="#projects">projects</a></li>
+          <li><a href="#education">education</a></li>
+          <li><a href="#">cv</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="hero">
+        <div class="container">
+          <div class="hero-top">
+            <div>
+              <p class="hero-affil">IMDEA Software Institute & UPM @ Madrid, Spain</p>
+              <h1>Marco Ciccalè</h1>
+            </div>
+            <img id="avatar-1" class="avatar" src="assets/pfp.webp" alt="Me in a safari!">
+            <img id="avatar-2" class="avatar" src="assets/iclp.webp" alt="Giving a talk at ICLP'25.">
+            <img id="avatar-3" class="avatar" src="assets/gru.webp" alt="Gru!">
           </div>
-        </div>
-        <div>
-          <div class="avatar">photo</div>
+
+          <div class="hero-bottom">
+            <p class="hero-bio" style="margin-top:1.5rem">
+              I am a Ph.D. student in computer science at the
+              <a href="https://software.imdea.org/">IMDEA Software Institute</a>
+              and
+              <a href="https://www.upm.es/">Universidad Politécnica de Madrid</a>,
+              advised by
+              <a href="https://cliplab.org/~herme/">Manuel V. Hermenegildo</a>,
+              <a href="https://jfmc.github.io/">Jose F. Morales</a>,
+              and
+              <a href="https://software.imdea.org/people/pedro.lopez/">Pedro López-García</a>.
+              I am part of the <a href="https://cliplab.org/">CLIP Lab</a> research group,
+              and a developer of
+              the <a href="https://ciao-lang.org/">Ciao Prolog</a> system.
+            </p>
+            <p class="hero-bio">
+              My research sits at the intersection of <em>static analysis</em>,
+              <em>formal verification</em>, and
+              <em>programming language implementation</em> &mdash; with
+              abstract interpretation as a central thread.
+            </p>
+        <div class="hero-links">
+          <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
         </div>
       </div>
     </div>
@@ -83,6 +96,7 @@
         <span class="tag">semantics</span>
         <span class="tag">logic programming</span>
         <span class="tag">theory of programming languages</span>
+        <span class="tag">logic</span>
       </div>
     </div>
   </section>
@@ -100,7 +114,7 @@
           <div class="pub-body">
             <p class="pub-title">Your paper title goes here</p>
             <p class="pub-authors">Marco, Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p>
-            <p class="pub-venue"><em>Conference / Journal Name</em>, 2024</p>
+            <p class="pub-venue">Conference / Journal Name, 2024</p>
             <div class="pub-links">
               <a href="#">PDF</a>
               <a href="#">Abstract</a>
@@ -114,7 +128,7 @@
           <div class="pub-body">
             <p class="pub-title">Another paper title goes here</p>
             <p class="pub-authors">Marco, Jose F. Morales, Pedro López-García</p>
-            <p class="pub-venue"><em>Conference / Journal Name</em>, 2023</p>
+            <p class="pub-venue">Conference / Journal Name, 2023</p>
             <div class="pub-links">
               <a href="#">PDF</a>
               <a href="#">Abstract</a>
@@ -123,7 +137,9 @@
         </div>
 
       </div>
-      <p class="pub-note">Full list on <a href="#">Google Scholar</a> and <a href="#">DBLP</a>.</p>
+      <!-- <p class="pub-note"> -->
+      <!--   Full list on <a href="https://scholar.google.com/citations?user=FurOeSAAAAAJ">Google Scholar</a>. -->
+      <!-- </p> -->
     </div>
   </section>
 
