@@ -10,9 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <script>
-      let FF_FOUC_FIX; // to prevent Firefox FOUC
-    </script>
+	<script type="text/javascript" src="script.js"></script>
 
     <title>Marco Ciccalè</title>
   </head>
@@ -27,7 +25,7 @@
           <li><a href="#publications">publications</a></li>
           <li><a href="#projects">projects</a></li>
           <li><a href="#education">education</a></li>
-          <li><a href="#">cv</a></li>
+          <li><a href="pdf/cv.pdf">cv</a></li>
         </ul>
       </div>
     </nav>
@@ -61,10 +59,9 @@
               the <a href="https://ciao-lang.org/">Ciao Prolog</a> system.
             </p>
             <p class="hero-bio">
-              My research sits at the intersection of <em>static analysis</em>,
-              <em>formal verification</em>, and
-              <em>programming language implementation</em> &mdash; with
-              abstract interpretation as a central thread.
+			  I am 
+			  My research is centered around static analysis by
+			  <em>abstract interpretation</em>.
             </p>
         <div class="hero-links">
           <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
@@ -112,27 +109,77 @@
         <div class="pub">
           <div class="pub-num">[1]</div>
           <div class="pub-body">
-            <p class="pub-title">Your paper title goes here</p>
-            <p class="pub-authors">Marco, Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p>
-            <p class="pub-venue">Conference / Journal Name, 2024</p>
+            <p class="pub-title">Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks</p>
+            <p class="pub-authors">Daniela Ferreiro, Daniel Jurjo-Rivas, <span style="text-decoration: underline;">Marco Ciccalè</span>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+            <p class="pub-venue">To appear in Theory and Practice of Logic Programming, special issue for the International Conference on Logic Programming (ICLP), 2026</p>
             <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Abstract</a>
-              <a href="#">Code</a>
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <!-- <a href="#">DOI</a> -->
+              <a href="pdf/rtcheck-vers.pdf">PDF</a>
             </div>
+			<div class="pub-abstract">
+			  <p>
+				In strongly-typed languages, types are verified at compile time,
+				while dynamically typed languages, such as Prolog, perform type
+				consistency checks entirely at run-time.  Extending dynamic
+				languages with assertions allows expressing both classical types and
+				more general properties, providing high expressiveness, but at the
+				cost of run-time overhead.  Abstract interpretation allows safely
+				approximating such program properties at compile time, which has
+				been used to reduce the number of properties that require run-time
+				checks, while still reporting unverified properties that can guide
+				further static analyses, testing, or domain refinement.  In this
+				work, we first study how to selectively integrate the run-time
+				semantics of assertion properties into a multivariant, top-down,
+				goal-directed abstract interpretation algorithm. We then show how
+				multiple inferred calling patterns can be exploited to reduce the
+				number of properties that must be checked at run-time, thus
+				minimizing the overhead.  Finally, we report on an implementation of
+				our approach in the Ciao system and provide performance results
+				supporting that better results can be obtained
+			  </p>
+			</div>
           </div>
         </div>
 
         <div class="pub">
           <div class="pub-num">[2]</div>
           <div class="pub-body">
-            <p class="pub-title">Another paper title goes here</p>
-            <p class="pub-authors">Marco, Jose F. Morales, Pedro López-García</p>
-            <p class="pub-venue">Conference / Journal Name, 2023</p>
+            <p class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</p>
+            <p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+            <p class="pub-venue">Theory and Practice of Logic Programming, special issue for the International Conference on Logic Programming (ICLP), 2025</p>
             <div class="pub-links">
-              <a href="#">PDF</a>
-              <a href="#">Abstract</a>
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <a href="https://doi.org/10.1017/S147106842510015X">DOI</a>
+              <a href="pdf/hiord-sharp.pdf">PDF</a>
             </div>
+			<div class="pub-abstract">
+			  <p>
+				Higher-order constructs enable more expressive and concise code by
+				allowing procedures to be parameterized by other procedures.
+				Assertions allow expressing partial program specifications, which can
+				be verified either at compile time (statically) or run time
+				(dynamically).  In higher-order programs, assertions can also describe
+				higher-order arguments.  While in the context of (C)LP, run-time
+				verification of higher-order assertions has received some attention,
+				compile-time verification remains relatively unexplored.  We propose a
+				novel approach for statically verifying higher-order (C)LP programs
+				with higher-order assertions.  Although we use the Ciao assertion
+				language for illustration, our approach is quite general and we
+				believe is applicable to similar contexts.  Higher-order arguments are
+				described using predicate properties&mdash;a special kind of property
+				which exploits the (Ciao) assertion language.  We refine the syntax
+				and semantics of these properties and introduce an abstract criterion
+				to determine conformance to a predicate property at compile time,
+				based on a semantic order relation comparing the predicate property
+				with the predicate assertions. We then show how to handle these
+				properties using an abstract interpretation-based static analyzer for
+				programs with first-order assertions by reducing predicate properties
+				to first-order properties.  Finally, we report on a prototype
+				implementation and evaluate it through various examples within the
+				Ciao system.
+			  </p>
+			</div>
           </div>
         </div>
 
