@@ -1,0 +1,10 @@
+* Work-related
+** TODO Work in a better bio and research interests sections
+** TODO Add theses in the education section
+** TODO Add info about extra activities such as Feria Madrid es Ciencia, Gymkhana, ...
+** TODO Add info about talks at the aut. seminar
+** TODO Add info about conferences that I have attended
+** TODO Should I add PROLE's paper?
+* Not work-related
+** TODO Add info about my setup: Emacs, Ergodox, OS, Window Manager
+** TODO Add something about my hobbies

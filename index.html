@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript" src="script.js"></script>
+
+    <title>Marco Ciccalè</title>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container">
+        <a href="#" class="nav-name">Marco Ciccalè</a>
+        <span style="font-size: 1.3rem; font-weight: 500;">&vDash;</span>
+        <ul class="nav-links">
+          <li><a href="#research">research</a></li>
+          <li><a href="#publications">publications</a></li>
+          <li><a href="#systems">systems</a></li>
+          <li><a href="#education">education</a></li>
+          <li><a href="pdf/cv.pdf">cv</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <div class="hero">
+        <div class="container">
+          <div class="hero-top">
+            <div>
+              <p class="hero-affil">IMDEA Software Institute & UPM @ Madrid, Spain</p>
+              <h1>Marco Ciccalè</h1>
+            </div>
+            <img id="avatar-1" class="avatar" src="assets/pfp.webp" alt="Me in a safari!">
+            <img id="avatar-2" class="avatar" src="assets/iclp.webp" alt="Giving a talk at ICLP'25.">
+            <img id="avatar-3" class="avatar" src="assets/gru.webp" alt="Gru!">
+          </div>
+
+          <div class="hero-bottom">
+            <p class="hero-bio" style="margin-top:1.5rem">
+              I am a Ph.D. student in computer science at the
+              <a href="https://software.imdea.org/">IMDEA Software Institute</a>
+              and
+              <a href="https://www.upm.es/">Universidad Politécnica de Madrid</a>,
+              advised by
+              <a href="https://cliplab.org/~herme/">Manuel V. Hermenegildo</a>,
+              <a href="https://jfmc.github.io/">Jose F. Morales</a>,
+              and
+              <a href="https://software.imdea.org/people/pedro.lopez/">Pedro López-García</a>.
+              I am part of the <a href="https://cliplab.org/">CLIP Lab</a> research group,
+              and a developer of
+              the <a href="https://ciao-lang.org/">Ciao Prolog</a> system.
+            </p>
+            <p class="hero-bio">
+              My research centers on <em>abstract interpretation</em>
+              and its applications to the static analysis and
+              verification of declarative and dynamic programming
+              languages (<em>e.g.</em>, Prolog).  I am also drawn to
+              the foundational side of the field, with interests
+              spanning <em>semantics</em> and <em>order theory</em>.
+
+              A central theme in my research is the tension between
+              <em>expressiveness</em>, <em>efficiency</em>,
+              and <em>explainability</em>.
+            </p>
+        <div class="hero-links">
+          <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="research">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Research interests</span>
+        <div class="section-rule"></div>
+      </div>
+      <p>
+        I work on <em>top-down</em> abstract interpretation
+        for <em>CHC-based</em> languages.  A framework that builds
+        an <em>analysis graph</em> starting from a series of program
+        entry-points using an optimized fixpoint algorithm.
+      </p>
+      <ul class="list">
+        <li class="list-element">
+          <strong>Expressiveness:</strong> The richer the language and
+          the properties we can express, the harder they become to
+          verify.  The practical challenge is thus to push
+          expressiveness as far as possible while static analysis can
+          still prove meaningful properties.  Richer language
+          constructs, such as higher-order procedures and assertions,
+          demand richer analysis techniques that can match their
+          expressiveness.  We address this by reducing higher-order
+          properties and assertions to first-order ones, bringing them
+          within reach of standard first-order analyzers.
+        </li>
+        <li class="list-element">
+          <strong>Efficiency:</strong> Fully safe execution requires
+          checking every program property, but doing so entirely at
+          run time is prohibitively expensive, while doing it entirely
+          at compile time is impossible in general. The practical and
+          most-efficient solution lies in between: discharging as many
+          properties as possible statically, reserving run-time checks
+          only for those that resist static analysis.  We address
+          efficiency at both levels: at compile time, assertions can
+          guide the fixpoint computation, focusing the analysis on
+          relevant call patterns and speeding up convergence; at run
+          time, the inferred properties for the different call
+          patterns are used to discharge checks selectively, placing
+          run-time checks only on the specific versions of a predicate
+          that need them, rather than guarding the predicate as a
+          whole.
+        </li>
+        <li class="list-element">
+          <strong>Explainability:</strong> Analysis results are often
+          opaque, leaving the programmer with little understanding of
+          why a property was or was not verified.  In some recent
+          work, we address this through an interactive debugger for
+          the top-down abstract interpretation algorithm, which
+          provides real-time visibility into the progress of the
+          analysis as it is being computed, allowing the programmer to
+          inspect intermediate states, understand how properties are
+          being propagated, where and when the analyzer is losing
+          precision (<em>e.g.</em>, widenings), and gain actionable
+          insight into the behavior of the analyzer.  Beyond aiding
+          the programmer, the traces produced by the debugger open a
+          further avenue: using them to diagnose inefficiencies in the
+          fixpoint computation itself and guide potential
+          optimizations.
+        </li>
+      </ul>
+      <!-- <div class="tags"> -->
+      <!--   <span class="tag">abstract interpretation</span> -->
+      <!--   <span class="tag">static analysis</span> -->
+      <!--   <span class="tag">verification</span> -->
+      <!--   <span class="tag">semantics</span> -->
+      <!--   <span class="tag">logic programming</span> -->
+      <!--   <span class="tag">theory of programming languages</span> -->
+      <!--   <span class="tag">logic</span> -->
+      <!-- </div> -->
+    </div>
+  </section>
+
+  <section id="publications">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Publications</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="pub-list">
+
+        <div class="pub">
+          <div class="pub-num">[1]</div>
+          <div class="pub-body">
+            <p class="pub-title">Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks</p>
+            <p class="pub-authors">Daniela Ferreiro, Daniel Jurjo-Rivas, <span style="text-decoration: underline;">Marco Ciccalè</span>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+            <p class="pub-venue">To appear in Theory and Practice of Logic Programming, special issue for the International Conference on Logic Programming (ICLP), 2026</p>
+            <div class="pub-links">
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <!-- <a href="#">DOI</a> -->
+              <a href="pdf/rtcheck-vers.pdf">PDF</a>
+            </div>
+			<div class="pub-abstract">
+			  <p>
+				In strongly-typed languages, types are verified at compile time,
+				while dynamically typed languages, such as Prolog, perform type
+				consistency checks entirely at run-time.  Extending dynamic
+				languages with assertions allows expressing both classical types and
+				more general properties, providing high expressiveness, but at the
+				cost of run-time overhead.  Abstract interpretation allows safely
+				approximating such program properties at compile time, which has
+				been used to reduce the number of properties that require run-time
+				checks, while still reporting unverified properties that can guide
+				further static analyses, testing, or domain refinement.  In this
+				work, we first study how to selectively integrate the run-time
+				semantics of assertion properties into a multivariant, top-down,
+				goal-directed abstract interpretation algorithm. We then show how
+				multiple inferred calling patterns can be exploited to reduce the
+				number of properties that must be checked at run-time, thus
+				minimizing the overhead.  Finally, we report on an implementation of
+				our approach in the Ciao system and provide performance results
+				supporting that better results can be obtained
+			  </p>
+			</div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-num">[2]</div>
+          <div class="pub-body">
+            <p class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</p>
+            <p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+            <p class="pub-venue">Theory and Practice of Logic Programming, special issue for the International Conference on Logic Programming (ICLP), 2025</p>
+            <div class="pub-links">
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <a href="https://doi.org/10.1017/S147106842510015X">DOI</a>
+              <a href="pdf/hiord-sharp.pdf">PDF</a>
+            </div>
+			<div class="pub-abstract">
+			  <p>
+				Higher-order constructs enable more expressive and concise code by
+				allowing procedures to be parameterized by other procedures.
+				Assertions allow expressing partial program specifications, which can
+				be verified either at compile time (statically) or run time
+				(dynamically).  In higher-order programs, assertions can also describe
+				higher-order arguments.  While in the context of (C)LP, run-time
+				verification of higher-order assertions has received some attention,
+				compile-time verification remains relatively unexplored.  We propose a
+				novel approach for statically verifying higher-order (C)LP programs
+				with higher-order assertions.  Although we use the Ciao assertion
+				language for illustration, our approach is quite general and we
+				believe is applicable to similar contexts.  Higher-order arguments are
+				described using predicate properties&mdash;a special kind of property
+				which exploits the (Ciao) assertion language.  We refine the syntax
+				and semantics of these properties and introduce an abstract criterion
+				to determine conformance to a predicate property at compile time,
+				based on a semantic order relation comparing the predicate property
+				with the predicate assertions. We then show how to handle these
+				properties using an abstract interpretation-based static analyzer for
+				programs with first-order assertions by reducing predicate properties
+				to first-order properties.  Finally, we report on a prototype
+				implementation and evaluate it through various examples within the
+				Ciao system.
+			  </p>
+			</div>
+          </div>
+        </div>
+
+      </div>
+      <!-- <p class="pub-note"> -->
+      <!--   Full list on <a href="https://scholar.google.com/citations?user=FurOeSAAAAAJ">Google Scholar</a>. -->
+      <!-- </p> -->
+    </div>
+  </section>
+
+  <section id="systems">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Systems</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <p class="proj-name"><a href="https://ciao-lang.org/">Ciao Prolog</a></p>
+          <p class="proj-desc">
+            A logic programming-based, multi-paradigm programming
+            language with +20 years of active development.  The system
+            integreates both static analysis and verification by
+            abstract interpretation, and (property-based) testing
+            facilities by using <em>assertions</em> as a common
+            specification language for both.  I'm one of the
+            developers of the system, and it's the main platform for
+            my research.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Education</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-year">2025&mdash;...</div>
+          <div>
+            <p class="edu-degree">Ph.D. in Computer Science</p>
+            <p class="edu-school">IMDEA Software Institute &amp; Universidad Politécnica de Madrid</p>
+            <p class="edu-note">Advisors: Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2024&mdash;2025</div>
+          <div>
+            <p class="edu-degree">M.Sc. in Formal Methods in Computer Science and Engineering</p>
+            <p class="edu-school">Universidad Politécnica de Madrid &amp; Universidad Complutense de Madrid</p>
+            <p class="edu-note">Specialisation in declarative programming, static analysis, and formal verification</p>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-year">2021&mdash;2025</div>
+          <div>
+            <p class="edu-degree">B.Sc. in Computer Science</p>
+            <p class="edu-school">Universidad Politécnica de Madrid</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span class="footer-text">Marco Ciccalè</span>
+    <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
+  </div>
+</footer>
+
+</body>
+</html>
