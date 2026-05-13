@@ -38,6 +38,14 @@ h1 {
   padding: 0 2rem;
 }
 
+.list {
+    list-style: inside;
+}
+
+.list-element {
+    margin-bottom: 0.75rem;
+}
+
 /* -- Nav -- */
 nav {
   border-bottom: 1px solid var(--rule);
@@ -342,14 +350,6 @@ p:last-child { margin-bottom: 0; }
   color: var(--ink-2);
   line-height: 1.65;
   margin-bottom: 0.75rem;
-}
-
-.proj-role {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 300;
-  text-transform: uppercase;
-  color: var(--ink-3);
 }
 
 /* ── Education ── */

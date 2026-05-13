@@ -23,7 +23,7 @@
         <ul class="nav-links">
           <li><a href="#research">research</a></li>
           <li><a href="#publications">publications</a></li>
-          <li><a href="#projects">projects</a></li>
+          <li><a href="#systems">systems</a></li>
           <li><a href="#education">education</a></li>
           <li><a href="pdf/cv.pdf">cv</a></li>
         </ul>
@@ -59,9 +59,16 @@
               the <a href="https://ciao-lang.org/">Ciao Prolog</a> system.
             </p>
             <p class="hero-bio">
-			  I am 
-			  My research is centered around static analysis by
-			  <em>abstract interpretation</em>.
+              My research centers on <em>abstract interpretation</em>
+              and its applications to the static analysis and
+              verification of declarative and dynamic programming
+              languages (<em>e.g.</em>, Prolog).  I am also drawn to
+              the foundational side of the field, with interests
+              spanning <em>semantics</em> and <em>order theory</em>.
+
+              A central theme in my research is the tension between
+              <em>expressiveness</em>, <em>efficiency</em>,
+              and <em>explainability</em>.
             </p>
         <div class="hero-links">
           <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
@@ -77,24 +84,68 @@
         <div class="section-rule"></div>
       </div>
       <p>
-        I work on <em>static analysis via abstract interpretation</em> — a framework for automatically
-        inferring program properties without running the program. My interests span the full
-        spectrum: the theoretical foundations of abstract domains, the engineering of precise
-        and efficient analyzers, and the integration of analysis with formal verification systems.
+        I work on <em>top-down</em> abstract interpretation
+        for <em>CHC-based</em> languages.  A framework that builds
+        an <em>analysis graph</em> starting from a series of program
+        entry-points using an optimized fixpoint algorithm.
       </p>
-      <p>
-        I am particularly interested in declarative and logic programming settings, where
-        the clean formal semantics makes analysis both tractable and expressive.
-      </p>
-      <div class="tags">
-        <span class="tag">abstract interpretation</span>
-        <span class="tag">static analysis</span>
-        <span class="tag">verification</span>
-        <span class="tag">semantics</span>
-        <span class="tag">logic programming</span>
-        <span class="tag">theory of programming languages</span>
-        <span class="tag">logic</span>
-      </div>
+      <ul class="list">
+        <li class="list-element">
+          <strong>Expressiveness:</strong> The richer the language and
+          the properties we can express, the harder they become to
+          verify.  The practical challenge is thus to push
+          expressiveness as far as possible while static analysis can
+          still prove meaningful properties.  Richer language
+          constructs, such as higher-order procedures and assertions,
+          demand richer analysis techniques that can match their
+          expressiveness.  We address this by reducing higher-order
+          properties and assertions to first-order ones, bringing them
+          within reach of standard first-order analyzers.
+        </li>
+        <li class="list-element">
+          <strong>Efficiency:</strong> Fully safe execution requires
+          checking every program property, but doing so entirely at
+          run time is prohibitively expensive, while doing it entirely
+          at compile time is impossible in general. The practical and
+          most-efficient solution lies in between: discharging as many
+          properties as possible statically, reserving run-time checks
+          only for those that resist static analysis.  We address
+          efficiency at both levels: at compile time, assertions can
+          guide the fixpoint computation, focusing the analysis on
+          relevant call patterns and speeding up convergence; at run
+          time, the inferred properties for the different call
+          patterns are used to discharge checks selectively, placing
+          run-time checks only on the specific versions of a predicate
+          that need them, rather than guarding the predicate as a
+          whole.
+        </li>
+        <li class="list-element">
+          <strong>Explainability:</strong> Analysis results are often
+          opaque, leaving the programmer with little understanding of
+          why a property was or was not verified.  In some recent
+          work, we address this through an interactive debugger for
+          the top-down abstract interpretation algorithm, which
+          provides real-time visibility into the progress of the
+          analysis as it is being computed, allowing the programmer to
+          inspect intermediate states, understand how properties are
+          being propagated, where and when the analyzer is losing
+          precision (<em>e.g.</em>, widenings), and gain actionable
+          insight into the behavior of the analyzer.  Beyond aiding
+          the programmer, the traces produced by the debugger open a
+          further avenue: using them to diagnose inefficiencies in the
+          fixpoint computation itself and guide potential
+          optimizations.
+        </li>
+      </ul>
+      <!-- <div class="tags"> -->
+      <!--   <span class="tag">abstract interpretation</span> -->
+      <!--   <span class="tag">static analysis</span> -->
+      <!--   <span class="tag">verification</span> -->
+      <!--   <span class="tag">semantics</span> -->
+      <!--   <span class="tag">logic programming</span> -->
+      <!--   <span class="tag">theory of programming languages</span> -->
+      <!--   <span class="tag">logic</span> -->
+      <!-- </div> -->
     </div>
   </section>
 
@@ -190,29 +241,25 @@
     </div>
   </section>
 
-  <section id="projects">
+  <section id="systems">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Projects</span>
+        <span class="section-label">Systems</span>
         <div class="section-rule"></div>
       </div>
       <div class="proj-grid">
         <div class="proj-card">
           <p class="proj-name"><a href="https://ciao-lang.org/">Ciao Prolog</a></p>
           <p class="proj-desc">
-            A modern Prolog system with native support for modular programming,
-            assertions, and static verification via abstract interpretation.
-            One of the main platforms for my research.
+            A logic programming-based, multi-paradigm programming
+            language with +20 years of active development.  The system
+            integreates both static analysis and verification by
+            abstract interpretation, and (property-based) testing
+            facilities by using <em>assertions</em> as a common
+            specification language for both.  I'm one of the
+            developers of the system, and it's the main platform for
+            my research.
           </p>
-          <span class="proj-role">core developer</span>
-        </div>
-        <div class="proj-card">
-          <p class="proj-name"><a href="#">Project name</a></p>
-          <p class="proj-desc">
-            Brief description of another tool, library, or research artifact.
-            Replace with your own project — a prototype analyzer, a benchmark suite, etc.
-          </p>
-          <span class="proj-role">author</span>
         </div>
       </div>
     </div>
