@@ -24,8 +24,9 @@
           <li><a href="#research">research</a></li>
           <li><a href="#publications">publications</a></li>
           <li><a href="#systems">systems</a></li>
+          <li><a href="#service">service</a></li>
           <li><a href="#education">education</a></li>
-          <li><a href="pdf/cv.pdf">cv</a></li>
+          <!-- <li><a href="pdf/cv.pdf">cv</a></li> -->
         </ul>
       </div>
     </nav>
@@ -66,9 +67,9 @@
               the foundational side of the field, with interests
               spanning <em>semantics</em> and <em>order theory</em>.
 
-              A central theme in my research is the tension between
-              <em>expressiveness</em>, <em>efficiency</em>,
-              and <em>explainability</em>.
+              <!-- A central theme in my research is the tension between -->
+              <!-- <em>expressiveness</em>, <em>efficiency</em>, -->
+              <!-- and <em>explainability</em>. -->
             </p>
         <div class="hero-links">
           <span class="footer-text">marco [dot] ciccale [at] imdea [dot] org</span>
@@ -94,13 +95,11 @@
           <strong>Expressiveness:</strong> The richer the language and
           the properties we can express, the harder they become to
           verify.  The practical challenge is thus to push
-          expressiveness as far as possible while static analysis can
-          still prove meaningful properties.  Richer language
-          constructs, such as higher-order procedures and assertions,
-          demand richer analysis techniques that can match their
-          expressiveness.  We address this by reducing higher-order
-          properties and assertions to first-order ones, bringing them
-          within reach of standard first-order analyzers.
+          expressiveness as far as possible while static analyzers
+          remain tractable able to prove meaningful properties.
+          Richer language constructs, such as higher-order procedures
+          and assertions, demand richer analysis techniques that can
+          match their expressiveness.
         </li>
         <li class="list-element">
           <strong>Efficiency:</strong> Fully safe execution requires
@@ -122,19 +121,18 @@
         <li class="list-element">
           <strong>Explainability:</strong> Analysis results are often
           opaque, leaving the programmer with little understanding of
-          why a property was or was not verified.  In some recent
+          why a property was or was not verified.  In some ongoing
           work, we address this through an interactive debugger for
           the top-down abstract interpretation algorithm, which
           provides real-time visibility into the progress of the
           analysis as it is being computed, allowing the programmer to
           inspect intermediate states, understand how properties are
           being propagated, where and when the analyzer is losing
-          precision (<em>e.g.</em>, widenings), and gain actionable
-          insight into the behavior of the analyzer.  Beyond aiding
-          the programmer, the traces produced by the debugger open a
-          further avenue: using them to diagnose inefficiencies in the
-          fixpoint computation itself and guide potential
-          optimizations.
+          precision (<em>e.g.</em>, widenings, disjunctions, etc.).
+          <!-- Beyond aiding the programmer, the traces produced by the -->
+          <!-- debugger open a further avenue: using them to diagnose -->
+          <!-- inefficiencies in the fixpoint computation itself and guide -->
+          <!-- potential optimizations. -->
         </li>
       </ul>
       <!-- <div class="tags"> -->
@@ -152,11 +150,10 @@
   <section id="publications">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Publications</span>
+        <span class="section-label">International conferences</span>
         <div class="section-rule"></div>
       </div>
       <div class="pub-list">
-
         <div class="pub">
           <div class="pub-num">[1]</div>
           <div class="pub-body">
@@ -239,6 +236,41 @@
       <!--   Full list on <a href="https://scholar.google.com/citations?user=FurOeSAAAAAJ">Google Scholar</a>. -->
       <!-- </p> -->
     </div>
+
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Workshops & regional venues</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="pub-list">
+
+        <div class="pub">
+          <div class="pub-num">[3]</div>
+          <div class="pub-body">
+            <p class="pub-title">Demonstrating the Ciao Prolog Playground</p>
+            <p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniela Ferreiro, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+            <p class="pub-venue">To appear in proceedings of Jornadas de Programación y Lenguajes (PROLE), 2026</p>
+            <div class="pub-links">
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <!-- <a href="#">DOI</a> -->
+              <a href="pdf/ciao-playground-demo-prole.pdf">PDF</a>
+            </div>
+			<div class="pub-abstract">
+			  <p>
+				We propose a demonstration of the Ciao Prolog
+				Playground and the Active Logic Documents (ALDs)
+				approach as a practical toolset designed to facilitate
+				the teaching and learning of Prolog and formal
+				methods, both on-line and in the classroom.
+			  </p>
+			</div>
+          </div>
+        </div>
+      </div>
+      <!-- <p class="pub-note"> -->
+      <!--   Full list on <a href="https://scholar.google.com/citations?user=FurOeSAAAAAJ">Google Scholar</a>. -->
+      <!-- </p> -->
+    </div>
   </section>
 
   <section id="systems">
@@ -262,6 +294,20 @@
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section id="service">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Service</span>
+        <div class="section-rule"></div>
+      </div>
+      <ul class="list">
+        <li class="list-element">
+          <a href="https://iclp25.demacs.unical.it">ICLP'25</a> external reviewer.
+		</li>
+      </ul>
     </div>
   </section>
 
