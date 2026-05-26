@@ -65,7 +65,8 @@
               verification of declarative and dynamic programming
               languages (<em>e.g.</em>, Prolog).  I am also drawn to
               the foundational side of the field, with interests
-              spanning <em>semantics</em> and <em>order theory</em>.
+              spanning <em>semantics</em>, <em>logic</em>
+              and <em>order theory</em>.
 
               <!-- A central theme in my research is the tension between -->
               <!-- <em>expressiveness</em>, <em>efficiency</em>, -->
@@ -239,13 +240,119 @@
 
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Workshops & regional venues</span>
+        <span class="section-label">Theses</span>
         <div class="section-rule"></div>
       </div>
       <div class="pub-list">
 
         <div class="pub">
           <div class="pub-num">[3]</div>
+          <div class="pub-body">
+            <p class="pub-title">Towards Verification of Higher-Order (Constraint) Logic Programs via Abstract Interpretation</p>
+            <p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span></p>
+            <p class="pub-venue">M.Sc. thesis, 2025</p>
+            <div class="pub-links">
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <a href="https://oa.upm.es/91841/">DOI</a>
+              <a href="pdf/msc-thesis.pdf">PDF</a>
+            </div>
+			<div class="pub-abstract">
+			  <p>
+                Higher-order constructs enable more expressive and
+                concise code by allowing procedures to be
+                parameterized by other procedures, resulting in more
+                modular and maintainable code.  Assertions are
+                linguistic constructs for writing partial program
+                specifications, which can then be verified either at
+                compile time (<em>i.e.</em>, statically) or run time
+                (<em>i.e.</em>, dynamically).  In the case of
+                higher-order programs, assertions provide descriptions
+                of the higher-order arguments of procedures.  In the
+                context of (C)LP, the run-time verification of such
+                higher-order assertions has received some
+                attention. However, verification at compile time
+                remains relatively unexplored.
+
+                We propose a novel approach for
+                the <em>compile-time</em> verification of higher-order
+                (C)LP programs with assertions that describe
+                higher-order arguments.  Although our presentation is
+                based for concreteness on the Ciao assertion language,
+                the approach is quite general and flexible, and we
+                believe it can be applied to similar gradual
+                approaches.  Higher-order arguments are described
+                using predicate properties, a special kind of
+                properties that allow using the full power of the
+                (Ciao) assertion language for such arguments.
+
+                We first present a refinement of both the syntax and
+                semantics of these properties.  Next, we introduce an
+                abstract criterion to determine whether a predicate
+                conforms to a predicate property at compile time,
+                based on a semantic order relation to compare the
+                definition of a predicate property and the partial
+                specification of a predicate.  We then propose a
+                technique for dealing with these properties using an
+                abstract interpretation-based static analyzer for
+                programs with first-order assertions, by reducing
+                predicate properties to first-order properties that
+                are natively understood by such an analyzer.  Finally,
+                we report on a prototype implementation and study the
+                effectiveness of the approach with various examples
+                within the Ciao system.
+			  </p>
+			</div>
+          </div>
+        </div>
+
+        <div class="pub">
+          <div class="pub-num">[4]</div>
+          <div class="pub-body">
+            <p class="pub-title">Improvements in Ciao Prolog's Development Environment: Developing A Rich Development Environment for Ciao on Visual Studio Code</p>
+            <p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span></p>
+            <p class="pub-venue">B.Sc. thesis, 2024</p>
+            <div class="pub-links">
+			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
+              <a href="https://oa.upm.es/82571/">DOI</a>
+              <a href="pdf/bsc-thesis.pdf">PDF</a>
+            </div>
+			<div class="pub-abstract">
+			  <p>
+                The software industry has consistently experienced rapid and transformative
+                changes since its beginning. A significant aspect of this evolution lies in
+                the tools and utilities available for creating software solutions. These
+                tools enable developers to focus on crafting solutions while minimizing
+                time spent on non-essential tasks.
+
+                Among these tools, the text editor is arguably one of the most crucial. In
+                recent years, Visual Studio Code has emerged as the most widely used text
+                editor globally. It allows users to extend its functionality through extensions
+                implemented using modern web technologies.
+
+                This project aims to explain the design and implementation of a Visual Studio
+                Code extension for the Ciao programming language. The extension integrates
+                core tools such as the Ciao preprocessor (CiaoPP) and the autodocumenter for
+                (C)LP systems (LPdoc) in an intuitive and comprehensive way inside a modern
+                and accessible text editor. This integration makes the extension suitable for
+                developers of all expertise levels in logic programming and software
+                verification.
+			  </p>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Workshops & regional venues</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="pub-list">
+
+        <div class="pub">
+          <div class="pub-num">[5]</div>
           <div class="pub-body">
             <p class="pub-title">Demonstrating the Ciao Prolog Playground</p>
             <p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniela Ferreiro, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
@@ -267,6 +374,7 @@
           </div>
         </div>
       </div>
+
       <!-- <p class="pub-note"> -->
       <!--   Full list on <a href="https://scholar.google.com/citations?user=FurOeSAAAAAJ">Google Scholar</a>. -->
       <!-- </p> -->
@@ -323,7 +431,7 @@
           <div>
             <p class="edu-degree">Ph.D. in Computer Science</p>
             <p class="edu-school">IMDEA Software Institute &amp; Universidad Politécnica de Madrid</p>
-            <p class="edu-note">Advisors: Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p>
+            <!-- <p class="edu-note">Advisors: Manuel V. Hermenegildo, Jose F. Morales, Pedro López-García</p> -->
           </div>
         </div>
         <div class="edu-item">
@@ -331,7 +439,7 @@
           <div>
             <p class="edu-degree">M.Sc. in Formal Methods in Computer Science and Engineering</p>
             <p class="edu-school">Universidad Politécnica de Madrid &amp; Universidad Complutense de Madrid</p>
-            <p class="edu-note">Specialisation in declarative programming, static analysis, and formal verification</p>
+            <!-- <p class="edu-note">Specialisation in declarative programming, static analysis, and formal verification</p> -->
           </div>
         </div>
         <div class="edu-item">

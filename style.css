@@ -366,6 +366,7 @@ p:last-child { margin-bottom: 0; }
   border-bottom: 1px solid var(--rule);
 }
 
+.edu-item:first-child { margin-top: -1rem; }
 .edu-item:last-child { border-bottom: none; }
 
 .edu-year {
