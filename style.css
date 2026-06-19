@@ -234,6 +234,10 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: 2rem;
 }
 
+.talk {
+  margin-bottom: 2rem;
+}
+
 .pub-num {
   font-family: var(--mono);
   font-size: 0.68rem;
