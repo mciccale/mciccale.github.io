@@ -255,22 +255,18 @@
             <div class="pub-links">
 			  <a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
               <!-- <a href="#">DOI</a> -->
-              <!-- <a href="pdf/absdbg-nsad.pdf">PDF</a> -->
+              <a href="pdf/absdbg-nsad.pdf">PDF</a>
             </div>
 			<div class="pub-abstract">
 			  <p>
-                We present a unified framework for interactive,
-                source-level debugging of abstract interpreters based
-                on the top-down solver.  Our approach lifts Byrd's
-                procedure-box model to the abstract interpretation
-                setting, exposing relevant observables across multiple
-                levels of granularity.  The resulting debugger
-                inherits Byrd's familiar vocabulary of spy-points,
-                creeping, leaping, port leashing, and port hiding, and
-                runs on standard IDEs.  We illustrate the framework on
-                three case studies: debugging abstract domain
-                implementations, monitoring fixpoint computation, and
-                interactively inspecting analysis results.
+                The internal behavior of a static analyzer is often hard to inspect,
+                and existing tools tend to be tailored to a specific analyzer or task.
+                We present a unified, configurable debugger for top-down static
+                analyzers, built on a procedure-box model that exposes the solver's
+                internal steps as a controllable event stream in standard IDEs.  We
+                demonstrate it on three case studies: diagnosing an abstract domain
+                bug, cutting a 7.6-second analysis to 800 milliseconds via fixpoint
+                tracing, and a multi-domain correctness proof.
 			  </p>
 			</div>
           </div>
