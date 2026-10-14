@@ -15,7 +15,7 @@ system("Ciao Prolog", "https://ciao-lang.org/",
      my research.").
 
 % service(Year, Event, Url, Role).
-% Entries with the same Year are shown together; newest year first.
+% Grouped by Year (newest first, in the order given), one entry per line.
 
 service(2027, "POPL'27",  "https://conf.researchr.org/home/POPL-2027",  "artifact evaluation committee member").
 service(2027, "VMCAI'27", "https://conf.researchr.org/home/VMCAI-2027", "artifact evaluation committee member").

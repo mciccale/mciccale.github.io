@@ -435,6 +435,20 @@ p:last-child { margin-bottom: 0; }
   padding-top: 0.25rem;
 }
 
+.service-entries {
+  list-style: none;
+}
+
+.service-entries li + li { margin-top: 0.35rem; }
+
+.service-entries a {
+  color: var(--ink);
+  text-decoration-color: var(--ink-3);
+  text-underline-offset: 3px;
+}
+
+.service-entries a:hover { color: var(--accent); }
+
 .edu-degree {
   font-size: 1rem;
   font-weight: 500;

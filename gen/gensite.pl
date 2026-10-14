@@ -153,13 +153,16 @@ section_body(systems, [container(["Systems"], [div([class="proj-grid"], Cards)])
             system(Name, Url, Desc), Cards0),
     interleave_nl(Cards0, Cards).
 
-section_body(service, [container(["Service"], [ul([class=list], Items)])]) :-
+section_body(service, [container(["Service"], [ol([class="edu-list"], Items)])]) :-
     findall(Y, service(Y, _, _, _), Ys0),
     remove_dups(Ys0, Ys),
-    findall(li([class="list-element"], Entries),
-            ( member(Y, Ys),
-              findall([a([href=Url], Event), " ", Role, ".", nl],
-                      service(Y, Event, Url, Role), Entries) ),
+    findall(li([class="edu-item"], [nl,
+                div([class="edu-year"], YS), nl,
+                ul([class="service-entries"], Entries), nl]),
+            ( member(Y, Ys), number_codes(Y, YS),
+              findall(li([a([href=Url], Event), " ", Role]),
+                      service(Y, Event, Url, Role), Entries0),
+              interleave_nl(Entries0, Entries) ),
             Items0),
     interleave_nl(Items0, Items).
 
