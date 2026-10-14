@@ -7,6 +7,14 @@ affiliation("IMDEA Software Institute &amp; UPM @ Madrid, Spain").
 email_text("marco [dot] ciccale [at] software [dot] imdea [dot] org").
 cv_pdf("pdf/cv.pdf").
 
+% profile_link(Label, Url).  Shown under the bio, after the email.
+profile_link("CV",             "pdf/cv.pdf").
+profile_link("Google Scholar", "https://scholar.google.com/citations?user=FurOeSAAAAAJ").
+profile_link("GitHub",         "https://github.com/mciccale").
+% TODO: fill in and uncomment.
+% profile_link("ORCID", "https://orcid.org/0000-0000-0000-0000").
+% profile_link("DBLP",  "https://dblp.org/pid/...").
+
 % avatar(Id, Src, Alt).  Shown in the hero, left to right.
 % Images are shown at 95px; use 190px files (2x for high-density screens).
 avatar("avatar-1", "assets/pfp-190.webp",
