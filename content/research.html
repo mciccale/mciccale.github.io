@@ -1,0 +1,47 @@
+<p>
+  I work on <em>top-down</em> abstract interpretation
+  for <em>rule-based</em> languages.  A framework that builds
+  an <em>analysis graph</em> starting from a series of program
+  entry-points using an optimized fixpoint algorithm.
+</p>
+<ul class="list">
+  <li class="list-element">
+    <strong>Expressiveness:</strong> The richer the language and
+    the properties we can express, the harder they become to
+    verify.  The practical challenge is thus to push
+    expressiveness as far as possible while static analyzers
+    remain tractable able to prove meaningful properties.
+    Richer language constructs, such as higher-order procedures
+    and assertions, demand richer analysis techniques that can
+    match their expressiveness.
+  </li>
+  <li class="list-element">
+    <strong>Efficiency:</strong> Fully safe execution requires
+    checking every program property, but doing so entirely at
+    run time is prohibitively expensive, while doing it entirely
+    at compile time is impossible in general. The practical and
+    most-efficient solution lies in between: discharging as many
+    properties as possible statically, reserving run-time checks
+    only for those that resist static analysis.  We address
+    efficiency at both levels: at compile time, assertions can
+    guide the fixpoint computation, focusing the analysis on
+    relevant call patterns and speeding up convergence; at run
+    time, the inferred properties for the different call
+    patterns are used to discharge checks selectively, placing
+    run-time checks only on the specific versions of a predicate
+    that need them, rather than guarding the predicate as a
+    whole.
+  </li>
+  <li class="list-element">
+    <strong>Explainability:</strong> Analysis results are often
+    opaque, leaving the programmer with little understanding of
+    why a property was or was not verified.  In some ongoing
+    work, we address this through an interactive debugger for
+    the top-down abstract interpretation algorithm, which
+    provides real-time visibility into the progress of the
+    analysis as it is being computed, allowing the programmer to
+    inspect intermediate states, understand how properties are
+    being propagated, where and when the analyzer is losing
+    precision (<em>e.g.</em>, widenings, disjunctions, etc.).
+  </li>
+</ul>

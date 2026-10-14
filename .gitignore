@@ -1,1 +1,13 @@
-public_html/
+# Local files (anchored to the repo root so they don't hide gen/gensite.pl)
+/public_html/gensite
+/gensite.itf
+/gensite.pl
+/gensite.po
+
+# Ciao compilation artifacts of the generator
+gen/gensite
+*.po
+*.itf
+*.asr
+*.ast
+*-tmpciao*
