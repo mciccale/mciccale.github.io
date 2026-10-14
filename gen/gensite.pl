@@ -12,6 +12,7 @@
 
 :- use_module(library(lists), [append/3, member/2, nth/3]).
 :- use_module(library(stream_utils), [file_to_string/2, write_string/2]).
+:- use_module(library(system), [datime/9]).
 
 % Content (plain facts, no module headers)
 :- include('../data/profile.pl').
@@ -271,9 +272,32 @@ join_and([X, Y, Z|R], [X, ", "|T]) :-
 % ---------------------------------------------------------------------------
 % Utilities
 
-% Contents of an HTML fragment file, copied verbatim.
+% Contents of an HTML fragment file, copied verbatim except for the
+% {{phd_year}} placeholder.
 fragment(File, Str) :-
-    file_to_string(File, Str).
+    file_to_string(File, Str0),
+    phd_year_word(W),
+    replace_all(Str0, "{{phd_year}}", W, Str).
+
+% Ordinal year of the Ph.D. on the build date (a year starts in the
+% start month).
+phd_year_word(W) :-
+    phd_start(SY, SM),
+    datime(_, Y, M, _, _, _, _, _, _),
+    N0 is Y - SY + 1,
+    ( M < SM -> N is N0 - 1 ; N = N0 ),
+    ( ordinal(N, W) -> true ; number_codes(N, W) ).
+
+ordinal(1, "first").  ordinal(2, "second").  ordinal(3, "third").
+ordinal(4, "fourth"). ordinal(5, "fifth").   ordinal(6, "sixth").
+
+replace_all([], _, _, []) :- !.
+replace_all(In, Pat, Rep, Out) :-
+    append(Pat, Rest, In), !,
+    replace_all(Rest, Pat, Rep, Out0),
+    append(Rep, Out0, Out).
+replace_all([C|Cs], Pat, Rep, [C|Out]) :-
+    replace_all(Cs, Pat, Rep, Out).
 
 % Separate list elements with newlines (only for readable HTML source).
 interleave_nl([], []).

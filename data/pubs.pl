@@ -43,7 +43,7 @@ pub(rtcheck_vers, conference, [
       number of properties that must be checked at run-time, thus
       minimizing the overhead.  Finally, we report on an implementation of
       our approach in the Ciao system and provide performance results
-      supporting that better results can be obtained")
+      supporting that better results can be obtained.")
 ]).
 
 pub(hiord_sharp, conference, [
@@ -83,7 +83,7 @@ pub(hiord_sharp, conference, [
 pub(absdbg_nsad, workshop, [
     title("Demonstrating the Top-Down Solver in a Box"),
     authors([me, morales, lopez, herme]),
-    venue("Presented in the International Workshop on Numerical and Symbolic Abstract Domains (NSAD)"),
+    venue("Presented at the International Workshop on Numerical and Symbolic Abstract Domains (NSAD)"),
     year(2026),
     pdf("pdf/absdbg-nsad.pdf"),
     abstract("The internal behavior of a static analyzer is often hard to inspect,
@@ -99,7 +99,7 @@ pub(absdbg_nsad, workshop, [
 pub(playground_prole, workshop, [
     title("Demonstrating the Ciao Prolog Playground"),
     authors([me, ferreiro, jurjo, morales, lopez, herme]),
-    venue("In proceedings of Jornadas de Programación y Lenguajes (PROLE)"),
+    venue("In Proceedings of Jornadas de Programación y Lenguajes (PROLE)"),
     year(2026),
     link("Handle", "https://hdl.handle.net/11705/PROLE/2026/20"),
     pdf("pdf/ciao-playground-demo-prole.pdf"),

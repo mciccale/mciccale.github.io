@@ -6,8 +6,8 @@
 
 system("Ciao Prolog", "https://ciao-lang.org/",
     "A logic programming-based, multi-paradigm programming
-     language with +20 years of active development.  The system
-     integreates both static analysis and verification by
+     language with over 20 years of active development.  The system
+     integrates both static analysis and verification by
      abstract interpretation, and (property-based) testing
      facilities by using <em>assertions</em> as a common
      specification language for both.  I'm one of the

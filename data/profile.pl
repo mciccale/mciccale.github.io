@@ -7,6 +7,10 @@ affiliation("IMDEA Software Institute &amp; UPM @ Madrid, Spain").
 email_text("marco [dot] ciccale [at] software [dot] imdea [dot] org").
 cv_pdf("pdf/cv.pdf").
 
+% Start of the Ph.D. (year, month): {{phd_year}} in content/*.html becomes
+% "first", "second", ... computed on the date the page is built.
+phd_start(2025, 9).
+
 % avatar(Id, Src, Alt).  Shown in the hero, left to right.
 % Images are shown at 95px; use 190px files (2x for high-density screens).
 avatar("avatar-1", "assets/pfp-190.webp",
