@@ -401,6 +401,11 @@ p:last-child { margin-bottom: 0; }
   border-color: var(--accent);
 }
 
+.proj-desc a {
+  color: var(--accent);
+  text-decoration-color: var(--accent-light);
+}
+
 .proj-desc {
   font-size: 0.9rem;
   color: var(--ink-2);

@@ -2,7 +2,7 @@
 % Systems, service and education
 % ---------------------------------------------------------------------------
 
-% system(Name, Url, DescriptionHtml).
+% system(Name, Url, DescriptionHtml).  Url may be "" (no link).
 
 system("Ciao Prolog", "https://ciao-lang.org/",
     "A logic programming-based, multi-paradigm programming
@@ -13,6 +13,25 @@ system("Ciao Prolog", "https://ciao-lang.org/",
      specification language for both.  I'm one of the
      developers of the system, and it's the main platform for
      my research.").
+
+system("Ciao for VS Code",
+    "https://marketplace.visualstudio.com/items?itemName=ciao-lang.ciao-prolog-vsc",
+    "Visual Studio Code extension for Ciao: syntax highlighting, an
+     integrated top level, error marking, documentation generation
+     with LPdoc, and a source debugger.  Developed as my B.Sc. thesis
+     (<a href=\"https://github.com/ciao-lang/ciao_vsc\">source</a>).").
+
+system("Ciao Prolog Playground", "https://ciao-lang.org/playground",
+    "A browser-based environment for writing, running and sharing
+     Prolog code, and for building runnable documents (Active Logic
+     Documents), with nothing to install and no server.  Demonstrated
+     at PROLE 2026.").
+
+system("Top-down analysis debugger", "",
+    "A configurable debugger for top-down static analyzers, built on a
+     procedure-box model that exposes the solver's internal steps as a
+     controllable event stream in standard IDEs.  Ongoing work,
+     demonstrated at NSAD 2026.").
 
 % service(Year, Event, Url, Role).
 % Entries with the same Year are shown together; newest year first.

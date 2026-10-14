@@ -148,9 +148,11 @@ section_body(talks, Blocks) :-
 
 section_body(systems, [container(["Systems"], [div([class="proj-grid"], Cards)])]) :-
     findall(div([class="proj-card"], [nl,
-                p([class="proj-name"], [a([href=Url], Name)]), nl,
+                h3([class="proj-name"], NameHtml), nl,
                 p([class="proj-desc"], Desc), nl]),
-            system(Name, Url, Desc), Cards0),
+            ( system(Name, Url, Desc),
+              ( Url = "" -> NameHtml = Name ; NameHtml = a([href=Url], Name) ) ),
+            Cards0),
     interleave_nl(Cards0, Cards).
 
 section_body(service, [container(["Service"], [ul([class=list], Items)])]) :-
