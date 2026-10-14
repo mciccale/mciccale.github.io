@@ -63,10 +63,58 @@ head(head([nl,
     link$[rel=preconnect, href="https://fonts.gstatic.com", crossorigin], nl,
     link$[href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap",
           rel=stylesheet], nl,
+    meta$[name=description, content=Desc], nl,
+    link$[rel=canonical, href=Url], nl,
+    link$[rel=icon, href="favicon.svg", type="image/svg+xml"], nl,
+    meta$[property="og:type", content="profile"], nl,
+    meta$[property="og:title", content=Title], nl,
+    meta$[property="og:description", content=Desc], nl,
+    meta$[property="og:url", content=Url], nl,
+    meta$[property="og:image", content=ImgUrl], nl,
+    meta$[name="twitter:card", content="summary"], nl,
+    script([type="application/ld+json"], JsonLd), nl,
     link$[rel=stylesheet, type="text/css", href="style.css"], nl,
     script([src="script.js", defer], []), nl,
     title(Title), nl])) :-
-    site_title(Title).
+    site_title(Title),
+    site_url(Url),
+    meta_description(Desc),
+    meta_image(Img), append(Url, Img, ImgUrl),
+    json_ld(JsonLd).
+
+% schema.org Person description (JSON-LD).
+json_ld(Json) :-
+    site_title(Name), site_url(Url), meta_job_title(Job),
+    meta_affiliation(Org, OrgUrl),
+    json_object([ "@context"-"https://schema.org", "@type"-"Person",
+                  "name"-Name, "url"-Url, "jobTitle"-Job,
+                  "affiliation"-obj(["@type"-"Organization", "name"-Org, "url"-OrgUrl]) ],
+                Json).
+
+json_object(Pairs, Json) :-
+    json_pairs(Pairs, Body),
+    append("{", Body, J1), append(J1, "}", Json).
+
+json_pairs([], []).
+json_pairs([K-V|Ps], Json) :-
+    json_value(V, VJ),
+    append([0'"|K], [0'", 0':|VJ], KV),
+    ( Ps = [] -> Rest = [] ; json_pairs(Ps, R0), Rest = [0',|R0] ),
+    append(KV, Rest, Json).
+
+json_value(obj(Pairs), J) :- !, json_object(Pairs, J).
+json_value(Str, J) :-
+    json_escape(Str, Esc),
+    append([0'"|Esc], [0'"], J).
+
+json_escape([], []).
+json_escape([C|Cs], Out) :-
+    ( C = 0'" -> Out = [0'\\, 0'"|R]
+    ; C = 0'\\ -> Out = [0'\\, 0'\\|R]
+    ; C = 0'< -> append("\\u003c", R, Out)   % keeps </script> out of the JSON
+    ; Out = [C|R]
+    ),
+    json_escape(Cs, R).
 
 body(body([nl,
            a([class="skip-link", href="#content"], "Skip to content"), nl,

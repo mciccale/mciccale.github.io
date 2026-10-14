@@ -7,6 +7,14 @@ affiliation("IMDEA Software Institute &amp; UPM @ Madrid, Spain").
 email_text("marco [dot] ciccale [at] software [dot] imdea [dot] org").
 cv_pdf("pdf/cv.pdf").
 
+% Page metadata (search results, link previews, schema.org).
+% Plain text here: no HTML entities.
+site_url("https://mciccale.github.io/").
+meta_description("Marco Ciccalè is a Ph.D. student at the IMDEA Software Institute and Universidad Politécnica de Madrid working on abstract interpretation and static analysis of logic programs, and a developer of Ciao Prolog.").
+meta_image("assets/pfp-190.webp").
+meta_job_title("Ph.D. student").
+meta_affiliation("IMDEA Software Institute", "https://software.imdea.org/").
+
 % avatar(Id, Src, Alt).  Shown in the hero, left to right.
 % Images are shown at 95px; use 190px files (2x for high-density screens).
 avatar("avatar-1", "assets/pfp-190.webp",

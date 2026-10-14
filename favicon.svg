@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    rect { fill: #2B4A8F; }
+    @media (prefers-color-scheme: dark) { rect { fill: #9DB4E8; } }
+  </style>
+  <!-- ⊨ (models): a vertical bar with two horizontal strokes -->
+  <rect x="6" y="4" width="3.5" height="24" rx="1"/>
+  <rect x="9" y="10" width="17" height="3.5" rx="1"/>
+  <rect x="9" y="18.5" width="17" height="3.5" rx="1"/>
+</svg>
