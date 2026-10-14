@@ -11,6 +11,7 @@
    can be used freely.").
 
 :- use_module(library(lists), [append/3, member/2, nth/3]).
+:- use_module(library(format), [format/3]).
 :- use_module(library(stream_utils), [file_to_string/2, write_string/2]).
 
 % Content (plain facts, no module headers)
@@ -29,7 +30,8 @@ main(Args) :-
     html2terms(Str, Doc),
     open(Out, write, S),
     write_string(S, Str),
-    close(S).
+    close(S),
+    write_bibtex_files.
 
 % Pillow writes character codes > 255 as numbers; emit them as numeric
 % character references instead, so any Unicode text in the data is safe.
@@ -200,7 +202,8 @@ pub_entry(Id, li([class=pub], [nl,
     Venue = [V, ", ", YS],
     abstract_dom_id(Id, AbsId),
     Context = [" of &ldquo;", Title, "&rdquo;"],
-    pub_links(Ps, AbsId, Context, Links0), interleave_nl(Links0, Links),
+    bib_path(Id, BibPath),
+    pub_links([bib_file(BibPath)|Ps], AbsId, Context, Links0), interleave_nl(Links0, Links),
     ( member(abstract(A), Ps) ->
         Abstract = div([class="pub-abstract", id=AbsId, hidden], [nl, p(A), nl])
     ; Abstract = []
@@ -220,7 +223,11 @@ pub_title_authors(Id, Title, Authors) :-
 % unambiguous for screen readers when read out of context.
 pub_links(Ps, AbsId, Context, Links) :-
     findall(a([href=U], [Lbl, sr_only(Context)]),
-            (member(P, Ps), pub_link(P, Lbl, U)), Links0),
+            (member(P, Ps), pub_link(P, Lbl, U)), Links00),
+    ( member(bibtex(_, _), Ps), member(bib_file(BibF), Ps) ->
+        append(Links00, [a([href=BibF], ["BibTeX", sr_only(Context)])], Links0)
+    ; Links0 = Links00
+    ),
     ( member(abstract(_), Ps) ->
         Links = [button([type=button, class="abstract-toggle",
                          'aria-expanded'=false, 'aria-controls'=AbsId],
@@ -267,6 +274,68 @@ join_and([X], [X]).
 join_and([X, Y], [X, " and ", Y]).
 join_and([X, Y, Z|R], [X, ", "|T]) :-
     join_and([Y, Z|R], T).
+
+% ---------------------------------------------------------------------------
+% BibTeX: one bib/<Id>.bib file per publication with a bibtex/2 property
+
+bib_path(Id, Path) :-
+    atom_codes(Id, Cs),
+    append("bib/", Cs, P0),
+    append(P0, ".bib", Path).
+
+write_bibtex_files :-
+    ( pub(Id, _, Ps), member(bibtex(Type, Fields), Ps),
+      write_bibtex(Id, Type, Fields, Ps),
+      fail
+    ; true
+    ).
+
+write_bibtex(Id, Type, Given, Ps) :-
+    bib_path(Id, Path), atom_codes(File, Path),
+    member(authors(As), Ps),
+    findall(N, (member(A, As), person(A, N, _)), Names),
+    join_with(Names, " and ", Authors),
+    ( member(title = T, Given) -> Title = T ; member(title(Title), Ps) ),
+    member(year(Y), Ps), number_codes(Y, YS),
+    findall(K = V, (member(K = V, Given), K \== title), Rest),
+    ( member(doi(D), Ps) -> Doi = [doi = D] ; Doi = [] ),
+    append([author = Authors, title = [0'{|T1]], Rest, F0),
+    append(Title, "}", T1),
+    append(F0, [year = YS|Doi], Fields),
+    open(File, write, S),
+    format(S, "@~w{~w,~n", [Type, Id]),
+    ( member(K = V, Fields),
+      tex_escape(V, TV),
+      format(S, "  ~w = {~s},~n", [K, TV]),
+      fail
+    ; true
+    ),
+    format(S, "}~n", []),
+    close(S).
+
+% Non-ASCII letters as TeX accents, so the file works with plain BibTeX.
+% Matches character sequences, so it works whether the source text is
+% read as UTF-8 bytes or as decoded characters.
+tex_escape([], []) :- !.
+tex_escape(In, Out) :-
+    tex_seq(Seq, T), append(Seq, Rest, In), !,
+    append(T, R, Out),
+    tex_escape(Rest, R).
+tex_escape([C|Cs], [C|R]) :-
+    tex_escape(Cs, R).
+
+tex_seq("&", "\\&").
+tex_seq("á", "{\\'a}").  tex_seq("é", "{\\'e}").  tex_seq("í", "{\\'\\i}").
+tex_seq("ó", "{\\'o}").  tex_seq("ú", "{\\'u}").  tex_seq("ñ", "{\\~n}").
+tex_seq("à", "{\\`a}").  tex_seq("è", "{\\`e}").  tex_seq("ò", "{\\`o}").
+tex_seq("ü", "{\\\"u}"). tex_seq("ç", "{\\c c}").
+
+join_with([], _, []).
+join_with([X], _, X) :- !.
+join_with([X|Xs], Sep, Out) :-
+    join_with(Xs, Sep, R),
+    append(Sep, R, R1),
+    append(X, R1, Out).
 
 % ---------------------------------------------------------------------------
 % Utilities

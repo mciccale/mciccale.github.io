@@ -9,6 +9,7 @@ DATA   = $(wildcard data/*.pl)
 FRAGS  = $(wildcard content/*.html)
 
 index.html: $(GEN) $(FRAGS)
+	mkdir -p bib
 	./$(GEN) $@
 
 # Data files are included at compile time, so they are generator inputs.

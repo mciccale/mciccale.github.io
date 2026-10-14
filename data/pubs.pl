@@ -12,6 +12,10 @@
 %   venue(Html)        year(Year)
 %   doi(Doi)           link(Label, Url)    pdf(Path)
 %   abstract(Html)
+%   bibtex(Type, [Field = Value, ...])
+%       Adds a BibTeX link (bib/<Id>.bib).  author, title, year and doi
+%       are filled in from the other properties; give title = ... here
+%       when the HTML title has markup.  Values are plain text/LaTeX.
 %
 % Text is raw HTML (entities such as &sharp; and tags such as <em> are
 % fine).  A pub Id can be referenced by talks in talks.pl.
@@ -26,6 +30,8 @@ pub(rtcheck_vers, conference, [
     year(2026),
     doi("10.1017/S1471068426100672"),
     pdf("pdf/rtcheck-vers.pdf"),
+    bibtex(article, [journal = "Theory and Practice of Logic Programming",
+                     note = "Special issue for ICLP 2026"]),
     abstract("In strongly-typed languages, types are verified at compile time,
       while dynamically typed languages, such as Prolog, perform type
       consistency checks entirely at run-time.  Extending dynamic
@@ -53,6 +59,9 @@ pub(hiord_sharp, conference, [
     year(2025),
     doi("10.1017/S147106842510015X"),
     pdf("pdf/hiord-sharp.pdf"),
+    bibtex(article, [title = "Hiord$^{\\sharp}$: An Approach to the Specification and Verification of Higher-Order (C)LP Programs",
+                     journal = "Theory and Practice of Logic Programming",
+                     note = "Special issue for ICLP 2025"]),
     abstract("Higher-order constructs enable more expressive and concise code by
       allowing procedures to be parameterized by other procedures.
       Assertions allow expressing partial program specifications, which can
@@ -86,6 +95,7 @@ pub(absdbg_nsad, workshop, [
     venue("Presented in the International Workshop on Numerical and Symbolic Abstract Domains (NSAD)"),
     year(2026),
     pdf("pdf/absdbg-nsad.pdf"),
+    bibtex(misc, [howpublished = "Presented at the International Workshop on Numerical and Symbolic Abstract Domains (NSAD 2026)"]),
     abstract("The internal behavior of a static analyzer is often hard to inspect,
       and existing tools tend to be tailored to a specific analyzer or task.
       We present a unified, configurable debugger for top-down static
@@ -103,6 +113,8 @@ pub(playground_prole, workshop, [
     year(2026),
     link("Handle", "https://hdl.handle.net/11705/PROLE/2026/20"),
     pdf("pdf/ciao-playground-demo-prole.pdf"),
+    bibtex(inproceedings, [booktitle = "Jornadas de Programación y Lenguajes (PROLE 2026)",
+                           url = "https://hdl.handle.net/11705/PROLE/2026/20"]),
     abstract("We propose a demonstration of the Ciao Prolog
       Playground and the Active Logic Documents (ALDs)
       approach as a practical toolset designed to facilitate
@@ -119,6 +131,8 @@ pub(msc_thesis, thesis, [
     year(2025),
     link("Repository", "https://oa.upm.es/91841/"),
     pdf("pdf/msc-thesis.pdf"),
+    bibtex(mastersthesis, [school = "Universidad Politécnica de Madrid",
+                           url = "https://oa.upm.es/91841/"]),
     abstract("Higher-order constructs enable more expressive and
       concise code by allowing procedures to be
       parameterized by other procedures, resulting in more
@@ -170,6 +184,9 @@ pub(bsc_thesis, thesis, [
     year(2024),
     link("Repository", "https://oa.upm.es/82571/"),
     pdf("pdf/bsc-thesis.pdf"),
+    bibtex(mastersthesis, [type = "B.Sc. thesis",
+                           school = "Universidad Politécnica de Madrid",
+                           url = "https://oa.upm.es/82571/"]),
     abstract("The software industry has consistently experienced rapid and transformative
       changes since its beginning. A significant aspect of this evolution lies in
       the tools and utilities available for creating software solutions. These

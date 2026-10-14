@@ -39,7 +39,8 @@ pub(my_paper, conference, [
 ]).
 ```
 
-Numbering, author formatting and the abstract toggle are generated.
+Numbering, author formatting and the abstract toggle are generated.  Add
+`bibtex(Type, [...])` to also get a `BibTeX` link (written to `bib/`).
 
 ## Adding a talk
 
