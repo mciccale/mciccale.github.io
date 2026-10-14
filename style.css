@@ -236,6 +236,30 @@ section {
 p { margin-bottom: 1rem; }
 p:last-child { margin-bottom: 0; }
 
+/* Superscripts (e.g. Hiord&sharp;) should not stretch the line. */
+sup { line-height: 0; }
+
+/* -- News -- */
+.news-list { list-style: none; }
+
+.news-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.news-date {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  padding-top: 0.25rem;
+}
+
+@media (max-width: 620px) {
+  .news-item { grid-template-columns: 1fr; gap: 0; }
+}
+
 /* -- Tags -- */
 .tags {
   display: flex;

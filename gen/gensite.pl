@@ -19,6 +19,7 @@
 :- include('../data/pubs.pl').
 :- include('../data/talks.pl').
 :- include('../data/cv.pl').
+:- include('../data/news.pl').
 
 % ---------------------------------------------------------------------------
 % Entry point
@@ -80,6 +81,7 @@ body(body([nl,
     footer(Footer).
 
 % Sections, in display order (also drives the navigation bar).
+section_id(news).
 section_id(research).
 section_id(publications).
 section_id(talks).
@@ -128,6 +130,17 @@ footer(footer([nl, div([class=container], [nl,
 
 section(Id, section([id=Id], Body)) :-
     section_body(Id, Body).
+
+section_body(news, [container(["News"], [ul([class="news-list"], Items)])]) :-
+    news_shown(Max),
+    findall(D-H, news(D, H), All),
+    take(Max, All, Shown),
+    findall(li([class="news-item"], [
+                span([class="news-date"], DateStr), nl,
+                span([class="news-text"], H)]),
+            ( member(D-H, Shown), date_text(D, DateStr) ),
+            Items0),
+    interleave_nl(Items0, Items).
 
 section_body(research, [container(["Research interests"], [Text])]) :-
     fragment('content/research.html', Text).
@@ -270,6 +283,20 @@ join_and([X, Y, Z|R], [X, ", "|T]) :-
 
 % ---------------------------------------------------------------------------
 % Utilities
+
+date_text(date(Y), YS) :- number_codes(Y, YS).
+date_text(date(Y, M), Str) :-
+    month_abbr(M, MS), number_codes(Y, YS),
+    append(MS, [0' |YS], Str).
+
+month_abbr(1, "Jan"). month_abbr(2, "Feb"). month_abbr(3, "Mar").
+month_abbr(4, "Apr"). month_abbr(5, "May"). month_abbr(6, "Jun").
+month_abbr(7, "Jul"). month_abbr(8, "Aug"). month_abbr(9, "Sep").
+month_abbr(10, "Oct"). month_abbr(11, "Nov"). month_abbr(12, "Dec").
+
+take(0, _, []) :- !.
+take(_, [], []) :- !.
+take(N, [X|Xs], [X|Ys]) :- N1 is N-1, take(N1, Xs, Ys).
 
 % Contents of an HTML fragment file, copied verbatim.
 fragment(File, Str) :-

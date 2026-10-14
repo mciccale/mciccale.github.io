@@ -14,6 +14,7 @@ Requires [Ciao](https://ciao-lang.org/) (`ciaoc` on the `PATH`).
 | Co-authors                        | `data/people.pl`           |
 | Publications                      | `data/pubs.pl`             |
 | Talks                             | `data/talks.pl`            |
+| News                              | `data/news.pl`             |
 | Systems, service, education       | `data/cv.pl`               |
 | Bio paragraphs                    | `content/bio.html`         |
 | Research interests text           | `content/research.html`    |
