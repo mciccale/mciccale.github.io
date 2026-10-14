@@ -8,14 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src="script.js"></script>
+<script src="script.js" defer></script>
 <title>Marco Ciccalè</title>
 </head>
 <body>
-<nav>
+<a class="skip-link" href="#content">Skip to content</a>
+<nav aria-label="Main">
 <div class="container">
-<a href="#" class="nav-name">Marco Ciccalè</a>
-<span style="font-size: 1.3rem; font-weight: 500;">&vDash;</span>
+<a href="./" class="nav-name">Marco Ciccalè</a>
+<span class="nav-mark" aria-hidden="true">&vDash;</span>
 <ul class="nav-links"><li><a href="#research">research</a></li>
 <li><a href="#publications">publications</a></li>
 <li><a href="#talks">talks</a></li>
@@ -25,7 +26,7 @@
 <li><a href="pdf/cv.pdf">cv</a></li></ul>
 </div>
 </nav>
-<main>
+<main id="content">
 <div class="hero">
 <div class="container">
 <div class="hero-top">
@@ -33,9 +34,9 @@
 <p class="hero-affil">IMDEA Software Institute &amp; UPM @ Madrid, Spain</p>
 <h1>Marco Ciccalè</h1>
 </div>
-<img id="avatar-1" class="avatar" src="assets/pfp.webp" alt="Me in a safari!">
-<img id="avatar-2" class="avatar" src="assets/iclp.webp" alt="Giving a talk at ICLP'25.">
-<img id="avatar-3" class="avatar" src="assets/gru.webp" alt="Gru!"></div>
+<img id="avatar-1" class="avatar" src="assets/pfp-190.webp" alt="Me on safari, in a sun hat and mirrored sunglasses, with a herd of wildebeest behind me." width="95" height="95">
+<img id="avatar-2" class="avatar" src="assets/iclp-190.webp" alt="Me giving a talk at ICLP'25." width="95" height="95">
+<img id="avatar-3" class="avatar" src="assets/gru-190.webp" alt="Gru, a golden retriever, with his tongue out." width="95" height="95"></div>
 <div class="hero-bottom">
 <p class="hero-bio" style="margin-top:1.5rem">
   I am a (first-year) Ph.D. student in computer science at the
@@ -67,7 +68,7 @@
 </div>
 <section id="research"><div class="container">
 <div class="section-header">
-<span class="section-label">Research interests</span>
+<h2 class="section-label">Research interests</h2>
 <div class="section-rule"></div>
 </div>
 <p>
@@ -121,19 +122,19 @@
 </div></section>
 <section id="publications"><div class="container">
 <div class="section-header">
-<span class="section-label">Publications: international conferences</span>
+<h2 class="section-label">Publications: international conferences</h2>
 <div class="section-rule"></div>
 </div>
-<div class="pub-list"><div class="pub">
+<ol class="pub-list"><li class="pub">
 <div class="pub-num">[1]</div>
 <div class="pub-body">
-<p class="pub-title">Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks</p>
-<p class="pub-authors">Daniela Ferreiro, Daniel Jurjo-Rivas, <span style="text-decoration: underline;">Marco Ciccalè</span>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks</h3>
+<p class="pub-authors">Daniela Ferreiro, Daniel Jurjo-Rivas, <strong class="me">Marco Ciccalè</strong>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">Theory and Practice of Logic Programming, special issue for the International Conference on Logic Programming (ICLP), 2026</p>
-<div class="pub-links"><a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
-<a href="https://doi.org/10.1017/S1471068426100672">DOI</a>
-<a href="pdf/rtcheck-vers.pdf">PDF</a></div>
-<div class="pub-abstract">
+<div class="pub-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-rtcheck_vers">Abstract<span class="visually-hidden"> of &ldquo;Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks&rdquo;</span></button>
+<a href="https://doi.org/10.1017/S1471068426100672">DOI<span class="visually-hidden"> of &ldquo;Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks&rdquo;</span></a>
+<a href="pdf/rtcheck-vers.pdf">PDF<span class="visually-hidden"> of &ldquo;Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks&rdquo;</span></a></div>
+<div class="pub-abstract" id="abstract-rtcheck_vers" hidden>
 <p>In strongly-typed languages, types are verified at compile time,
       while dynamically typed languages, such as Prolog, perform type
       consistency checks entirely at run-time.  Extending dynamic
@@ -154,17 +155,17 @@
       supporting that better results can be obtained</p>
 </div>
 </div>
-</div>
-<div class="pub">
+</li>
+<li class="pub">
 <div class="pub-num">[2]</div>
 <div class="pub-body">
-<p class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">Theory and Practice of Logic Programming, special issue for the International Conference on Logic Programming (ICLP), 2025</p>
-<div class="pub-links"><a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
-<a href="https://doi.org/10.1017/S147106842510015X">DOI</a>
-<a href="pdf/hiord-sharp.pdf">PDF</a></div>
-<div class="pub-abstract">
+<div class="pub-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-hiord_sharp">Abstract<span class="visually-hidden"> of &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo;</span></button>
+<a href="https://doi.org/10.1017/S147106842510015X">DOI<span class="visually-hidden"> of &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo;</span></a>
+<a href="pdf/hiord-sharp.pdf">PDF<span class="visually-hidden"> of &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo;</span></a></div>
+<div class="pub-abstract" id="abstract-hiord_sharp" hidden>
 <p>Higher-order constructs enable more expressive and concise code by
       allowing procedures to be parameterized by other procedures.
       Assertions allow expressing partial program specifications, which can
@@ -190,21 +191,21 @@
       Ciao system.</p>
 </div>
 </div>
-</div></div>
+</li></ol>
 </div><div class="container">
 <div class="section-header">
-<span class="section-label">Publications: workshops &amp; regional venues</span>
+<h2 class="section-label">Publications: workshops &amp; regional venues</h2>
 <div class="section-rule"></div>
 </div>
-<div class="pub-list"><div class="pub">
+<ol class="pub-list"><li class="pub">
 <div class="pub-num">[3]</div>
 <div class="pub-body">
-<p class="pub-title">Demonstrating the Top-Down Solver in a Box</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Demonstrating the Top-Down Solver in a Box</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">Presented in the International Workshop on Numerical and Symbolic Abstract Domains (NSAD), 2026</p>
-<div class="pub-links"><a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
-<a href="pdf/absdbg-nsad.pdf">PDF</a></div>
-<div class="pub-abstract">
+<div class="pub-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-absdbg_nsad">Abstract<span class="visually-hidden"> of &ldquo;Demonstrating the Top-Down Solver in a Box&rdquo;</span></button>
+<a href="pdf/absdbg-nsad.pdf">PDF<span class="visually-hidden"> of &ldquo;Demonstrating the Top-Down Solver in a Box&rdquo;</span></a></div>
+<div class="pub-abstract" id="abstract-absdbg_nsad" hidden>
 <p>The internal behavior of a static analyzer is often hard to inspect,
       and existing tools tend to be tailored to a specific analyzer or task.
       We present a unified, configurable debugger for top-down static
@@ -215,17 +216,17 @@
       tracing, and a multi-domain correctness proof.</p>
 </div>
 </div>
-</div>
-<div class="pub">
+</li>
+<li class="pub">
 <div class="pub-num">[4]</div>
 <div class="pub-body">
-<p class="pub-title">Demonstrating the Ciao Prolog Playground</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniela Ferreiro, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Demonstrating the Ciao Prolog Playground</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong>, Daniela Ferreiro, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">In proceedings of Jornadas de Programación y Lenguajes (PROLE), 2026</p>
-<div class="pub-links"><a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
-<a href="https://hdl.handle.net/11705/PROLE/2026/20">DOI</a>
-<a href="pdf/ciao-playground-demo-prole.pdf">PDF</a></div>
-<div class="pub-abstract">
+<div class="pub-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-playground_prole">Abstract<span class="visually-hidden"> of &ldquo;Demonstrating the Ciao Prolog Playground&rdquo;</span></button>
+<a href="https://hdl.handle.net/11705/PROLE/2026/20">Handle<span class="visually-hidden"> of &ldquo;Demonstrating the Ciao Prolog Playground&rdquo;</span></a>
+<a href="pdf/ciao-playground-demo-prole.pdf">PDF<span class="visually-hidden"> of &ldquo;Demonstrating the Ciao Prolog Playground&rdquo;</span></a></div>
+<div class="pub-abstract" id="abstract-playground_prole" hidden>
 <p>We propose a demonstration of the Ciao Prolog
       Playground and the Active Logic Documents (ALDs)
       approach as a practical toolset designed to facilitate
@@ -233,22 +234,22 @@
       methods, both on-line and in the classroom.</p>
 </div>
 </div>
-</div></div>
+</li></ol>
 </div><div class="container">
 <div class="section-header">
-<span class="section-label">Publications: theses</span>
+<h2 class="section-label">Publications: theses</h2>
 <div class="section-rule"></div>
 </div>
-<div class="pub-list"><div class="pub">
+<ol class="pub-list"><li class="pub">
 <div class="pub-num">[5]</div>
 <div class="pub-body">
-<p class="pub-title">Towards Verification of Higher-Order (Constraint) Logic Programs via Abstract Interpretation</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span></p>
+<h3 class="pub-title">Towards Verification of Higher-Order (Constraint) Logic Programs via Abstract Interpretation</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong></p>
 <p class="pub-venue">M.Sc. thesis with honours, 2025</p>
-<div class="pub-links"><a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
-<a href="https://oa.upm.es/91841/">DOI</a>
-<a href="pdf/msc-thesis.pdf">PDF</a></div>
-<div class="pub-abstract">
+<div class="pub-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-msc_thesis">Abstract<span class="visually-hidden"> of &ldquo;Towards Verification of Higher-Order (Constraint) Logic Programs via Abstract Interpretation&rdquo;</span></button>
+<a href="https://oa.upm.es/91841/">Repository<span class="visually-hidden"> of &ldquo;Towards Verification of Higher-Order (Constraint) Logic Programs via Abstract Interpretation&rdquo;</span></a>
+<a href="pdf/msc-thesis.pdf">PDF<span class="visually-hidden"> of &ldquo;Towards Verification of Higher-Order (Constraint) Logic Programs via Abstract Interpretation&rdquo;</span></a></div>
+<div class="pub-abstract" id="abstract-msc_thesis" hidden>
 <p>Higher-order constructs enable more expressive and
       concise code by allowing procedures to be
       parameterized by other procedures, resulting in more
@@ -293,17 +294,17 @@
       within the Ciao system.</p>
 </div>
 </div>
-</div>
-<div class="pub">
+</li>
+<li class="pub">
 <div class="pub-num">[6]</div>
 <div class="pub-body">
-<p class="pub-title">Improvements in Ciao Prolog's Development Environment: Developing A Rich Development Environment for Ciao on Visual Studio Code</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span></p>
+<h3 class="pub-title">Improvements in Ciao Prolog's Development Environment: Developing A Rich Development Environment for Ciao on Visual Studio Code</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong></p>
 <p class="pub-venue">B.Sc. thesis with honours, 2024</p>
-<div class="pub-links"><a href="#" class="abstract-toggle" onclick="toggleAbstract(this); return false;">Abstract &#x25BC;</a>
-<a href="https://oa.upm.es/82571/">DOI</a>
-<a href="pdf/bsc-thesis.pdf">PDF</a></div>
-<div class="pub-abstract">
+<div class="pub-links"><button type="button" class="abstract-toggle" aria-expanded="false" aria-controls="abstract-bsc_thesis">Abstract<span class="visually-hidden"> of &ldquo;Improvements in Ciao Prolog's Development Environment: Developing A Rich Development Environment for Ciao on Visual Studio Code&rdquo;</span></button>
+<a href="https://oa.upm.es/82571/">Repository<span class="visually-hidden"> of &ldquo;Improvements in Ciao Prolog's Development Environment: Developing A Rich Development Environment for Ciao on Visual Studio Code&rdquo;</span></a>
+<a href="pdf/bsc-thesis.pdf">PDF<span class="visually-hidden"> of &ldquo;Improvements in Ciao Prolog's Development Environment: Developing A Rich Development Environment for Ciao on Visual Studio Code&rdquo;</span></a></div>
+<div class="pub-abstract" id="abstract-bsc_thesis" hidden>
 <p>The software industry has consistently experienced rapid and transformative
       changes since its beginning. A significant aspect of this evolution lies in
       the tools and utilities available for creating software solutions. These
@@ -324,57 +325,57 @@
       verification.</p>
 </div>
 </div>
-</div></div>
+</li></ol>
 </div></section>
 <section id="talks"><div class="container">
 <div class="section-header">
-<span class="section-label">Talks: international conferences</span>
+<h2 class="section-label">Talks: international conferences</h2>
 <div class="section-rule"></div>
 </div>
-<div class="pub-list"><div class="talk">
+<ul class="pub-list"><li class="talk">
 <div class="pub-body">
-<p class="pub-title">Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks</p>
-<p class="pub-authors">Daniela Ferreiro, Daniel Jurjo-Rivas, <span style="text-decoration: underline;">Marco Ciccalè</span>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks</h3>
+<p class="pub-authors">Daniela Ferreiro, Daniel Jurjo-Rivas, <strong class="me">Marco Ciccalè</strong>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">International Conference on Logic Programming (ICLP), Federated Logic Conference (FLoC), Lisbon, Portugal, 2026</p>
-<div class="pub-links"><a href="pdf/rtcheck-vers-slides-iclp.pdf">Slides</a>
-<a href="img/talk-iclp26.jpeg">Photo</a></div>
+<div class="pub-links"><a href="pdf/rtcheck-vers-slides-iclp.pdf">Slides<span class="visually-hidden"> of the talk &ldquo;Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks&rdquo; (Lisbon, Portugal, 2026)</span></a>
+<a href="img/talk-iclp26.jpeg">Photo<span class="visually-hidden"> of the talk &ldquo;Exploiting Multiple Abstract Call Patterns for Optimizing Run-Time Checks&rdquo; (Lisbon, Portugal, 2026)</span></a></div>
 </div>
-</div>
-<div class="talk">
+</li>
+<li class="talk">
 <div class="pub-body">
-<p class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">International Conference on Logic Programming (ICLP), Rende (CS), Italy, 2025</p>
-<div class="pub-links"><a href="pdf/hiord-sharp-slides-iclp.pdf">Slides</a>
-<a href="img/talk-iclp25.jpeg">Photo</a></div>
+<div class="pub-links"><a href="pdf/hiord-sharp-slides-iclp.pdf">Slides<span class="visually-hidden"> of the talk &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo; (Rende (CS), Italy, 2025)</span></a>
+<a href="img/talk-iclp25.jpeg">Photo<span class="visually-hidden"> of the talk &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo; (Rende (CS), Italy, 2025)</span></a></div>
 </div>
-</div></div>
+</li></ul>
 </div><div class="container">
 <div class="section-header">
-<span class="section-label">Talks: workshops &amp; regional venues</span>
+<h2 class="section-label">Talks: workshops &amp; regional venues</h2>
 <div class="section-rule"></div>
 </div>
-<div class="pub-list"><div class="talk">
+<ul class="pub-list"><li class="talk">
 <div class="pub-body">
-<p class="pub-title">Demonstrating the Top-Down Solver in a Box</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Demonstrating the Top-Down Solver in a Box</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong>, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">International Workshop on Numerical and Symbolic Abstract Domains (NSAD), Oakland, California U.S., 2026</p>
-<div class="pub-links"><a href="pdf/absdbg-nsad-slides.pdf">Slides</a></div>
+<div class="pub-links"><a href="pdf/absdbg-nsad-slides.pdf">Slides<span class="visually-hidden"> of the talk &ldquo;Demonstrating the Top-Down Solver in a Box&rdquo; (Oakland, California U.S., 2026)</span></a></div>
 </div>
-</div>
-<div class="talk">
+</li>
+<li class="talk">
 <div class="pub-body">
-<p class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</p>
-<p class="pub-authors"><span style="text-decoration: underline;">Marco Ciccalè</span>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
+<h3 class="pub-title">Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs</h3>
+<p class="pub-authors"><strong class="me">Marco Ciccalè</strong>, Daniel Jurjo-Rivas, Jose F. Morales, Pedro López-García and Manuel V. Hermenegildo</p>
 <p class="pub-venue">Jornadas de Programación y Lenguajes (PROLE), Alicante, Spain, 2026</p>
-<div class="pub-links"><a href="pdf/hiord-sharp-slides-prole.pdf">Slides</a>
-<a href="img/talk-prole26.jpeg">Photo</a></div>
+<div class="pub-links"><a href="pdf/hiord-sharp-slides-prole.pdf">Slides<span class="visually-hidden"> of the talk &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo; (Alicante, Spain, 2026)</span></a>
+<a href="img/talk-prole26.jpeg">Photo<span class="visually-hidden"> of the talk &ldquo;Hiord<sup>&sharp;</sup>: An Approach to the Specification and Verification of Higher-Order (C)LP Programs&rdquo; (Alicante, Spain, 2026)</span></a></div>
 </div>
-</div></div>
+</li></ul>
 </div></section>
 <section id="systems"><div class="container">
 <div class="section-header">
-<span class="section-label">Systems</span>
+<h2 class="section-label">Systems</h2>
 <div class="section-rule"></div>
 </div>
 <div class="proj-grid"><div class="proj-card">
@@ -391,7 +392,7 @@
 </div></section>
 <section id="service"><div class="container">
 <div class="section-header">
-<span class="section-label">Service</span>
+<h2 class="section-label">Service</h2>
 <div class="section-rule"></div>
 </div>
 <ul class="list"><li class="list-element"><a href="https://conf.researchr.org/home/POPL-2027">POPL'27</a> artifact evaluation committee member.
@@ -402,32 +403,32 @@
 </div></section>
 <section id="education"><div class="container">
 <div class="section-header">
-<span class="section-label">Education</span>
+<h2 class="section-label">Education</h2>
 <div class="section-rule"></div>
 </div>
-<div class="edu-list"><div class="edu-item">
+<ol class="edu-list"><li class="edu-item">
 <div class="edu-year">2025&mdash;...</div>
 <div>
 <p class="edu-degree">Ph.D. in Computer Science</p>
 <p class="edu-school">IMDEA Software Institute &amp; Universidad Politécnica de Madrid</p>
 </div>
-</div>
-<div class="edu-item">
+</li>
+<li class="edu-item">
 <div class="edu-year">2024&mdash;2025</div>
 <div>
 <p class="edu-degree">M.Sc. in Formal Methods in Computer Science and Engineering</p>
 <p class="edu-school">Universidad Politécnica de Madrid &amp; Universidad Complutense de Madrid</p>
 <p class="edu-note">Grade: 9.18</p>
 </div>
-</div>
-<div class="edu-item">
+</li>
+<li class="edu-item">
 <div class="edu-year">2021&mdash;2025</div>
 <div>
 <p class="edu-degree">B.Sc. in Computer Science</p>
 <p class="edu-school">Universidad Politécnica de Madrid</p>
 <p class="edu-note">Grade: 7.37</p>
 </div>
-</div></div>
+</li></ol>
 </div></section></main>
 <footer>
 <div class="container">

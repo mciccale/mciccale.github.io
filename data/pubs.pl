@@ -101,7 +101,7 @@ pub(playground_prole, workshop, [
     authors([me, ferreiro, jurjo, morales, lopez, herme]),
     venue("In proceedings of Jornadas de Programación y Lenguajes (PROLE)"),
     year(2026),
-    link("DOI", "https://hdl.handle.net/11705/PROLE/2026/20"),
+    link("Handle", "https://hdl.handle.net/11705/PROLE/2026/20"),
     pdf("pdf/ciao-playground-demo-prole.pdf"),
     abstract("We propose a demonstration of the Ciao Prolog
       Playground and the Active Logic Documents (ALDs)
@@ -117,7 +117,7 @@ pub(msc_thesis, thesis, [
     authors([me]),
     venue("M.Sc. thesis with honours"),
     year(2025),
-    link("DOI", "https://oa.upm.es/91841/"),
+    link("Repository", "https://oa.upm.es/91841/"),
     pdf("pdf/msc-thesis.pdf"),
     abstract("Higher-order constructs enable more expressive and
       concise code by allowing procedures to be
@@ -168,7 +168,7 @@ pub(bsc_thesis, thesis, [
     authors([me]),
     venue("B.Sc. thesis with honours"),
     year(2024),
-    link("DOI", "https://oa.upm.es/82571/"),
+    link("Repository", "https://oa.upm.es/82571/"),
     pdf("pdf/bsc-thesis.pdf"),
     abstract("The software industry has consistently experienced rapid and transformative
       changes since its beginning. A significant aspect of this evolution lies in

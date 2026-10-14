@@ -45,6 +45,9 @@ html_expansion(container(Label, Content),
                div([class=container], [nl, Header, nl, Content, nl])) :-
     section_header(Label, Header).
 
+% Text for screen readers only (visually hidden).
+html_expansion(sr_only(Text), span([class="visually-hidden"], Text)).
+
 % ---------------------------------------------------------------------------
 % Page skeleton
 
@@ -61,12 +64,14 @@ head(head([nl,
     link$[href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@300;400&display=swap",
           rel=stylesheet], nl,
     link$[rel=stylesheet, type="text/css", href="style.css"], nl,
-    script([type="text/javascript", src="script.js"], []), nl,
+    script([src="script.js", defer], []), nl,
     title(Title), nl])) :-
     site_title(Title).
 
-body(body([nl, Nav, nl,
-           main([nl, Hero, nl | Sections]), nl,
+body(body([nl,
+           a([class="skip-link", href="#content"], "Skip to content"), nl,
+           Nav, nl,
+           main([id=content], [nl, Hero, nl | Sections]), nl,
            Footer, nl])) :-
     nav(Nav),
     hero(Hero),
@@ -85,9 +90,9 @@ section_id(education).
 % ---------------------------------------------------------------------------
 % Navigation, hero and footer
 
-nav(nav([nl, div([class=container], [nl,
-        a([href="#", class="nav-name"], Name), nl,
-        span([style="font-size: 1.3rem; font-weight: 500;"], "&vDash;"), nl,
+nav(nav(['aria-label'="Main"], [nl, div([class=container], [nl,
+        a([href="./", class="nav-name"], Name), nl,
+        span([class="nav-mark", 'aria-hidden'=true], "&vDash;"), nl,
         ul([class="nav-links"], Items), nl]), nl])) :-
     site_title(Name),
     findall(li([a([href=Href], Label)]),
@@ -107,7 +112,7 @@ hero(div([class=hero], [nl, div([class=container], [nl,
     affiliation(Affil),
     site_title(Name),
     email_text(Email),
-    findall(img$[id=Id, class=avatar, src=Src, alt=Alt],
+    findall(img$[id=Id, class=avatar, src=Src, alt=Alt, width=95, height=95],
             avatar(Id, Src, Alt), Avatars0),
     interleave_nl(Avatars0, Avatars),
     fragment('content/bio.html', Bio).
@@ -128,14 +133,14 @@ section_body(research, [container(["Research interests"], [Text])]) :-
     fragment('content/research.html', Text).
 
 section_body(publications, Blocks) :-
-    findall(container([Label], [div([class="pub-list"], Pubs)]),
+    findall(container([Label], [ol([class="pub-list"], Pubs)]),
             ( pub_section(Sec, Label),
               findall(P, (pub(Id, Sec, _), pub_entry(Id, P)), Pubs0),
               interleave_nl(Pubs0, Pubs) ),
             Blocks).
 
 section_body(talks, Blocks) :-
-    findall(container([Label], [div([class="pub-list"], Talks)]),
+    findall(container([Label], [ul([class="pub-list"], Talks)]),
             ( talk_section(Sec, Label),
               findall(T, (talk(Id, Sec, Ps), talk_entry(Id, Ps, T)), Talks0),
               interleave_nl(Talks0, Talks) ),
@@ -158,8 +163,8 @@ section_body(service, [container(["Service"], [ul([class=list], Items)])]) :-
             Items0),
     interleave_nl(Items0, Items).
 
-section_body(education, [container(["Education"], [div([class="edu-list"], Items)])]) :-
-    findall(div([class="edu-item"], [nl,
+section_body(education, [container(["Education"], [ol([class="edu-list"], Items)])]) :-
+    findall(li([class="edu-item"], [nl,
                 div([class="edu-year"], Years), nl,
                 div([nl, p([class="edu-degree"], Degree), nl,
                      p([class="edu-school"], School), nl | NoteHtml]), nl]),
@@ -170,7 +175,7 @@ section_body(education, [container(["Education"], [div([class="edu-list"], Items
 
 section_header(Label,
     div([class="section-header"], [nl,
-        span([class="section-label"], Label), nl,
+        h2([class="section-label"], Label), nl,
         div([class="section-rule"], []), nl])).
 
 % ---------------------------------------------------------------------------
@@ -180,10 +185,10 @@ pub_number(Id, N) :-
     findall(I, (pub_section(S, _), pub(I, S, _)), Ids),
     nth(N, Ids, Id), !.
 
-pub_entry(Id, div([class=pub], [nl,
+pub_entry(Id, li([class=pub], [nl,
         div([class="pub-num"], ["[", NumStr, "]"]), nl,
         div([class="pub-body"], [nl,
-            p([class="pub-title"], Title), nl,
+            h3([class="pub-title"], Title), nl,
             p([class="pub-authors"], Authors), nl,
             p([class="pub-venue"], Venue), nl,
             div([class="pub-links"], Links), nl,
@@ -193,11 +198,17 @@ pub_entry(Id, div([class=pub], [nl,
     pub_title_authors(Id, Title, Authors),
     member(venue(V), Ps), member(year(Y), Ps), number_codes(Y, YS),
     Venue = [V, ", ", YS],
-    pub_links(Ps, Links0), interleave_nl(Links0, Links),
+    abstract_dom_id(Id, AbsId),
+    Context = [" of &ldquo;", Title, "&rdquo;"],
+    pub_links(Ps, AbsId, Context, Links0), interleave_nl(Links0, Links),
     ( member(abstract(A), Ps) ->
-        Abstract = div([class="pub-abstract"], [nl, p(A), nl])
+        Abstract = div([class="pub-abstract", id=AbsId, hidden], [nl, p(A), nl])
     ; Abstract = []
     ).
+
+abstract_dom_id(Id, AbsId) :-
+    atom_codes(Id, Cs),
+    append("abstract-", Cs, AbsId).
 
 pub_title_authors(Id, Title, Authors) :-
     pub(Id, _, Ps),
@@ -205,22 +216,25 @@ pub_title_authors(Id, Title, Authors) :-
     member(authors(As), Ps),
     author_list(As, Authors).
 
-pub_links(Ps, Links) :-
-    findall(L, (member(P, Ps), pub_link(P, L)), Links0),
+% Link texts carry hidden context ("PDF of <title>") so that they are
+% unambiguous for screen readers when read out of context.
+pub_links(Ps, AbsId, Context, Links) :-
+    findall(a([href=U], [Lbl, sr_only(Context)]),
+            (member(P, Ps), pub_link(P, Lbl, U)), Links0),
     ( member(abstract(_), Ps) ->
-        Links = [a([href="#", class="abstract-toggle",
-                    onclick="toggleAbstract(this); return false;"],
-                   "Abstract &#x25BC;") | Links0]
+        Links = [button([type=button, class="abstract-toggle",
+                         'aria-expanded'=false, 'aria-controls'=AbsId],
+                        ["Abstract", sr_only(Context)]) | Links0]
     ; Links = Links0
     ).
 
-pub_link(doi(D),        a([href=U], "DOI")) :- append("https://doi.org/", D, U).
-pub_link(link(Lbl, U),  a([href=U], Lbl)).
-pub_link(pdf(F),        a([href=F], "PDF")).
+pub_link(doi(D),       "DOI", U) :- append("https://doi.org/", D, U).
+pub_link(link(Lbl, U), Lbl,   U).
+pub_link(pdf(F),       "PDF", F).
 
-talk_entry(Id, Ps, div([class=talk], [nl,
+talk_entry(Id, Ps, li([class=talk], [nl,
         div([class="pub-body"], [nl,
-            p([class="pub-title"], Title), nl,
+            h3([class="pub-title"], Title), nl,
             p([class="pub-authors"], Authors), nl,
             p([class="pub-venue"], [Event, ", ", Place, ", ", YS]), nl,
             div([class="pub-links"], Links), nl]), nl])) :-
@@ -228,18 +242,20 @@ talk_entry(Id, Ps, div([class=talk], [nl,
     member(event(Event), Ps),
     member(place(Place), Ps),
     member(year(Y), Ps), number_codes(Y, YS),
-    findall(L, (member(P, Ps), talk_link(P, L)), Links0),
+    Context = [" of the talk &ldquo;", Title, "&rdquo; (", Place, ", ", YS, ")"],
+    findall(a([href=F], [Lbl, sr_only(Context)]),
+            (member(P, Ps), talk_link(P, Lbl, F)), Links0),
     interleave_nl(Links0, Links).
 
-talk_link(slides(F), a([href=F], "Slides")).
-talk_link(photo(F),  a([href=F], "Photo")).
+talk_link(slides(F), "Slides", F).
+talk_link(photo(F),  "Photo",  F).
 
 % "A, B, C and D", with the site owner highlighted.
 author_list(Ids, Html) :-
     findall(N, (member(Id, Ids), author_name(Id, N)), Names),
     join_and(Names, Html).
 
-author_name(me, span([style="text-decoration: underline;"], Name)) :- !,
+author_name(me, strong([class=me], Name)) :- !,
     person(me, Name, _).
 author_name(Id, Name) :-
     person(Id, Name, _), !.
