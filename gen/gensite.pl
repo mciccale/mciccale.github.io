@@ -82,7 +82,6 @@ body(body([nl,
 % Sections, in display order (also drives the navigation bar).
 section_id(research).
 section_id(publications).
-section_id(talks).
 section_id(systems).
 section_id(service).
 section_id(education).
@@ -139,13 +138,6 @@ section_body(publications, Blocks) :-
               interleave_nl(Pubs0, Pubs) ),
             Blocks).
 
-section_body(talks, Blocks) :-
-    findall(container([Label], [ul([class="pub-list"], Talks)]),
-            ( talk_section(Sec, Label),
-              findall(T, (talk(Id, Sec, Ps), talk_entry(Id, Ps, T)), Talks0),
-              interleave_nl(Talks0, Talks) ),
-            Blocks).
-
 section_body(systems, [container(["Systems"], [div([class="proj-grid"], Cards)])]) :-
     findall(div([class="proj-card"], [nl,
                 p([class="proj-name"], [a([href=Url], Name)]), nl,
@@ -192,7 +184,7 @@ pub_entry(Id, li([class=pub], [nl,
             p([class="pub-authors"], Authors), nl,
             p([class="pub-venue"], Venue), nl,
             div([class="pub-links"], Links), nl,
-            Abstract, nl]), nl])) :-
+            Talks, Abstract, nl]), nl])) :-
     pub(Id, _, Ps),
     pub_number(Id, N), number_codes(N, NumStr),
     pub_title_authors(Id, Title, Authors),
@@ -201,6 +193,7 @@ pub_entry(Id, li([class=pub], [nl,
     abstract_dom_id(Id, AbsId),
     Context = [" of &ldquo;", Title, "&rdquo;"],
     pub_links(Ps, AbsId, Context, Links0), interleave_nl(Links0, Links),
+    pub_talks(Id, Title, Talks),
     ( member(abstract(A), Ps) ->
         Abstract = div([class="pub-abstract", id=AbsId, hidden], [nl, p(A), nl])
     ; Abstract = []
@@ -232,20 +225,35 @@ pub_link(doi(D),       "DOI", U) :- append("https://doi.org/", D, U).
 pub_link(link(Lbl, U), Lbl,   U).
 pub_link(pdf(F),       "PDF", F).
 
-talk_entry(Id, Ps, li([class=talk], [nl,
-        div([class="pub-body"], [nl,
-            h3([class="pub-title"], Title), nl,
-            p([class="pub-authors"], Authors), nl,
-            p([class="pub-venue"], [Event, ", ", Place, ", ", YS]), nl,
-            div([class="pub-links"], Links), nl]), nl])) :-
-    pub_title_authors(Id, Title, Authors),
-    member(event(Event), Ps),
+% Talks given about a publication, listed under it:
+%   "Talk at ICLP 2026 (Lisbon, Portugal) · Slides · Photo"
+pub_talks(Id, Title, Html) :-
+    findall(T, (talk(Id, _, Ps), talk_item(Title, Ps, T)), Items0),
+    ( Items0 = [] -> Html = []
+    ; interleave_nl(Items0, Items),
+      Html = [ul([class="pub-talks"], Items), nl]
+    ).
+
+talk_item(Title, Ps, li(["Talk at ", Short, " (", Place, ")" | Links])) :-
     member(place(Place), Ps),
     member(year(Y), Ps), number_codes(Y, YS),
-    Context = [" of the talk &ldquo;", Title, "&rdquo; (", Place, ", ", YS, ")"],
-    findall(a([href=F], [Lbl, sr_only(Context)]),
-            (member(P, Ps), talk_link(P, Lbl, F)), Links0),
-    interleave_nl(Links0, Links).
+    talk_short(Ps, YS, Short),
+    Context = [" of the talk &ldquo;", Title, "&rdquo; (", Short, ")"],
+    findall([" &middot; ", a([href=F], [Lbl, sr_only(Context)])],
+            (member(P, Ps), talk_link(P, Lbl, F)), Links).
+
+% Short event label: short(Label) if given, else the first acronym in
+% parentheses in the event name plus the year, e.g. "ICLP 2026".
+talk_short(Ps, _, Short) :-
+    member(short(Short), Ps), !.
+talk_short(Ps, YS, Short) :-
+    member(event(Event), Ps),
+    append(_, [0'(|Rest], Event),
+    append(Acr, [0')|_], Rest), !,
+    append(Acr, [0' |YS], Short).
+talk_short(Ps, YS, Short) :-
+    member(event(Event), Ps),
+    append(Event, [0' |YS], Short).
 
 talk_link(slides(F), "Slides", F).
 talk_link(photo(F),  "Photo",  F).

@@ -44,7 +44,7 @@ Numbering, author formatting and the abstract toggle are generated.
 ## Adding a talk
 
 Add a `talk/3` fact to `data/talks.pl`.  It refers to the publication by
-id, so the title and authors are not repeated:
+id and is listed under it, so the title and authors are not repeated:
 
 ```prolog
 talk(my_paper, conference, [

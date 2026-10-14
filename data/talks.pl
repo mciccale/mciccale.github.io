@@ -1,14 +1,16 @@
 % ---------------------------------------------------------------------------
 % Talks
 %
-%   talk(PubId, Section, Properties).
+%   talk(PubId, Kind, Properties).
 %
-% PubId refers to a pub/3 entry in pubs.pl: the title and authors are
-% taken from there.  Section is one of the talk_section/2 ids in
-% profile.pl.  Entries are shown in the order they appear here.
+% PubId refers to a pub/3 entry in pubs.pl; talks are listed under that
+% publication.  Kind (conference or workshop) is informative only.
+% Entries are shown in the order they appear here.
 %
 % Properties:
 %   event(Html)   place(Html)   year(Year)
+%   short(Html)   optional label, e.g. "ICLP 2026" (default: first
+%                 acronym in parentheses in the event name + year)
 %   slides(Path)  photo(Path)
 % ---------------------------------------------------------------------------
 

@@ -346,6 +346,23 @@ p:last-child { margin-bottom: 0; }
 .abstract-toggle::after { content: " \25BC" / ""; }
 .abstract-toggle[aria-expanded="true"]::after { content: " \25B2" / ""; }
 
+.pub-talks {
+  list-style: none;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+
+.pub-talks a {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-light);
+}
+
+.pub-talks a:hover { border-color: var(--accent); }
+
 .pub-abstract {
   margin-top: 0.5em;
   padding: 0em 1em;

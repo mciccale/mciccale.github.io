@@ -22,6 +22,3 @@ avatar("avatar-3", "assets/gru-190.webp",  "Gru, a golden retriever, with his to
 pub_section(conference, "Publications: international conferences").
 pub_section(workshop,   "Publications: workshops &amp; regional venues").
 pub_section(thesis,     "Publications: theses").
-
-talk_section(conference, "Talks: international conferences").
-talk_section(workshop,   "Talks: workshops &amp; regional venues").
