@@ -12,6 +12,24 @@
   --mono: 'DM Mono', monospace;
 }
 
+/* Dark theme: follows the system setting.  All text colours keep at
+   least 4.5:1 against both backgrounds. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1B1A18;
+    --bg-card: #24221F;
+    --ink: #EDEAE4;
+    --ink-2: #CBC6BD;
+    --ink-3: #A09B92;
+    --ink-alt: #F5F2EC;
+    --accent: #9DB4E8;
+    --accent-light: #3A4766;
+    --rule: #3B3834;
+  }
+}
+
+:root { color-scheme: light dark; }
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { font-size: 18px; scroll-padding-top: 5rem; }
@@ -349,7 +367,7 @@ p:last-child { margin-bottom: 0; }
 .pub-abstract {
   margin-top: 0.5em;
   padding: 0em 1em;
-  border-left: 3px solid #aaa;
+  border-left: 3px solid var(--rule);
   font-size: 0.85rem;
   color: var(--ink-2);
   line-height: 1.5;
